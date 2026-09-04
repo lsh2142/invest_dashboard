@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>외국인 현선물 수급</title>
+  <script src="/static/vendor/htmx.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css?v=1788186873">
+  
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <strong>Mission Control</strong>
+      <span class="brand-sub">투자 에이전트</span>
+    </div>
+    <nav class="tabs">
+    
+    
+      <a href="/backlog" class="tab ">수주잔고×실적</a>
+      <a href="/sectors" class="tab ">수주잔고 섹터</a>
+    
+    <a href="/clusters" class="tab ">테마별 2Q실적</a>
+    
+      <a href="/flows" class="tab is-active">외국인 수급</a>
+      
+    
+    </nav>
+  </header>
+
+  <main>
+    
+<div class="flows">
+  
+
+  <div class="summary">
+    <span class="chip">20260824 ~ 20260904</span>
+    <span class="chip chip-ok">6시간 전 갱신</span>
+    
+    <span class="refreshed">평일 18:10 자동 수집</span>
+  </div>
+
+  
+  <section class="verdict verdict-arbitrage">
+    <div class="verdict-head">
+      <span class="led led-stale"></span>
+      <strong>방향 반대 — 차익거래 개연성</strong>
+    </div>
+    <p>현물과 선물 방향이 반대다 — 지수 방향 베팅이 아니라 차익거래일 개연성이 크다. 금융투자 이(가) 정확히 거울상으로 움직여 그 해석을 지지한다.</p>
+    
+    <div class="verdict-nums">
+      <div><span>외국인 현물</span><b class="neg">-108,294억</b></div>
+      <div><span>외국인 선물</span><b class="pos">40,651억</b></div>
+      
+      <div><span>외국인 선물(계약)</span><b class="pos">+15,149</b></div>
+      
+      
+      <div><span>KOSDAQ 현물</span><b class="pos">4,898억</b></div>
+      
+    </div>
+    
+  </section>
+
+  <div class="flow-grid">
+    <section class="panel">
+      <h2>투자자별 순매수</h2>
+      <table class="flow-table">
+        <thead><tr><th>투자자</th><th class="num">현물(억)</th><th class="num">선물(억)</th><th>방향</th></tr></thead>
+        <tbody>
+        
+          <tr class="is-foreign">
+            <td>외국인</td>
+            <td class="num neg">
+              -108,294</td>
+            <td class="num pos">
+              40,651</td>
+            <td><span class="dir-opp">반대</span></td>
+          </tr>
+        
+          <tr class=" is-mirror">
+            <td>금융투자 <span class="tag-mirror">거울상</span></td>
+            <td class="num pos">
+              14,720</td>
+            <td class="num neg">
+              -34,816</td>
+            <td><span class="dir-opp">반대</span></td>
+          </tr>
+        
+          <tr class="">
+            <td>투신</td>
+            <td class="num neg">
+              -11,654</td>
+            <td class="num neg">
+              -3,825</td>
+            <td><span class="dir-same">같음</span></td>
+          </tr>
+        
+          <tr class="">
+            <td>연기금 등</td>
+            <td class="num neg">
+              -3,056</td>
+            <td class="num pos">
+              313</td>
+            <td><span class="dir-opp">반대</span></td>
+          </tr>
+        
+          <tr class="">
+            <td>개인</td>
+            <td class="num neg">
+              -24,275</td>
+            <td class="num pos">
+              234</td>
+            <td><span class="dir-opp">반대</span></td>
+          </tr>
+        
+          <tr class="">
+            <td>기타법인</td>
+            <td class="num pos">
+              145,127</td>
+            <td class="num neg">
+              -874</td>
+            <td><span class="dir-opp">반대</span></td>
+          </tr>
+        
+        </tbody>
+      </table>
+      <p class="caveat">⚠️ 선물 거래대금은 <b>명목금액</b>이다. 현물과 절대액을 직접 비교하지 말 것 — 방향과 상대 규모만 읽는다.</p>
+    </section>
+
+    <section class="panel">
+      <h2>베이시스 <span class="muted">(20260904)</span></h2>
+      
+      <table class="flow-table">
+        <thead><tr><th>월물</th><th class="num">종가</th><th class="num">시장</th><th class="num">이론</th><th>상태</th></tr></thead>
+        <tbody>
+        
+          
+          <tr>
+            <td>F 202609</td>
+            <td class="num">1052.5</td>
+            <td class="num pos">0.98</td>
+            <td class="num muted">0.62</td>
+            <td><span class="basis-rich">고평가</span></td>
+          </tr>
+        
+          
+          <tr>
+            <td>F 202612</td>
+            <td class="num">1058.95</td>
+            <td class="num pos">7.43</td>
+            <td class="num muted">8.81</td>
+            <td><span class="basis-cheap">저평가</span></td>
+          </tr>
+        
+          
+          <tr>
+            <td>F 202703</td>
+            <td class="num">1042.25</td>
+            <td class="num neg">-9.27</td>
+            <td class="num muted">17.97</td>
+            <td><span class="basis-backwardation">백워데이션</span></td>
+          </tr>
+        
+          
+          <tr>
+            <td>F 202706</td>
+            <td class="num">1048.5</td>
+            <td class="num neg">-3.02</td>
+            <td class="num muted">27.59</td>
+            <td><span class="basis-backwardation">백워데이션</span></td>
+          </tr>
+        
+          
+          <tr>
+            <td>F 202712</td>
+            <td class="num">1065.7</td>
+            <td class="num pos">14.18</td>
+            <td class="num muted">48.05</td>
+            <td><span class="basis-cheap">저평가</span></td>
+          </tr>
+        
+          
+          <tr>
+            <td>F 202806</td>
+            <td class="num">1082.8</td>
+            <td class="num pos">31.28</td>
+            <td class="num muted">69.2</td>
+            <td><span class="basis-cheap">저평가</span></td>
+          </tr>
+        
+          
+          <tr>
+            <td>F 202812</td>
+            <td class="num">1097.85</td>
+            <td class="num pos">46.33</td>
+            <td class="num muted">91.19</td>
+            <td><span class="basis-cheap">저평가</span></td>
+          </tr>
+        
+        </tbody>
+      </table>
+      <p class="caveat">선물이 이론 대비 <b>저평가·백워데이션</b>이면 「선물 사고 현물 파는」 차익거래와 방향이 맞는다.</p>
+      
+    </section>
+  </div>
+
+  
+  <section class="panel">
+    <h2>일별 추이 <span class="muted">(외국인 순매수)</span></h2>
+    
+    
+    <div class="chart-grid">
+      
+        
+        
+        <figure class="chart">
+          <figcaption>KOSPI 현물 <span class="muted">(억)</span></figcaption>
+          <svg viewBox="0 0 100.0 34.0" preserveAspectRatio="none" class="bars">
+            <line class="zero" x1="0" y1="17.0" x2="100.0" y2="17.0"/>
+            
+            <rect class="bar-neg"
+                  x="1.1" y="17.0" width="7.8" height="15.39">
+              <title>08/24 · -36,691억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="11.1" y="17.0" width="7.8" height="16.0">
+              <title>08/25 · -38,140억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="21.1" y="17.0" width="7.8" height="0.6">
+              <title>08/26 · -1,148억</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="31.1" y="16.44" width="7.8" height="0.6">
+              <title>08/27 · 1,333억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="41.1" y="17.0" width="7.8" height="3.58">
+              <title>08/28 · -8,525억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="51.1" y="17.0" width="7.8" height="2.7">
+              <title>08/31 · -6,434억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="61.1" y="17.0" width="7.8" height="2.08">
+              <title>09/01 · -4,968억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="71.1" y="17.0" width="7.8" height="8.04">
+              <title>09/02 · -19,173억</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="81.1" y="16.83" width="7.8" height="0.6">
+              <title>09/03 · 414억</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="91.1" y="14.99" width="7.8" height="2.01">
+              <title>09/04 · 4,796억</title>
+            </rect>
+            
+          </svg>
+          <div class="chart-axis"><span>08/24</span><span>09/04</span></div>
+        </figure>
+        
+      
+        
+        
+        <figure class="chart">
+          <figcaption>선물 <span class="muted">(계약)</span></figcaption>
+          <svg viewBox="0 0 100.0 34.0" preserveAspectRatio="none" class="bars">
+            <line class="zero" x1="0" y1="17.0" x2="100.0" y2="17.0"/>
+            
+            <rect class="bar-pos"
+                  x="1.1" y="11.76" width="7.8" height="5.24">
+              <title>08/24 · +2,657계약</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="11.1" y="17.0" width="7.8" height="0.7">
+              <title>08/25 · -357계약</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="21.1" y="9.39" width="7.8" height="7.61">
+              <title>08/26 · +3,856계약</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="31.1" y="5.55" width="7.8" height="11.45">
+              <title>08/27 · +5,801계약</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="41.1" y="12.48" width="7.8" height="4.52">
+              <title>08/28 · +2,289계약</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="51.1" y="14.28" width="7.8" height="2.72">
+              <title>08/31 · +1,377계약</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="61.1" y="17.0" width="7.8" height="6.39">
+              <title>09/01 · -3,237계약</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="71.1" y="17.0" width="7.8" height="16.0">
+              <title>09/02 · -8,107계약</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="81.1" y="10.93" width="7.8" height="6.07">
+              <title>09/03 · +3,077계약</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="91.1" y="1.62" width="7.8" height="15.38">
+              <title>09/04 · +7,793계약</title>
+            </rect>
+            
+          </svg>
+          <div class="chart-axis"><span>08/24</span><span>09/04</span></div>
+        </figure>
+        
+      
+        
+        
+        <figure class="chart">
+          <figcaption>삼성전자 <span class="muted">(억)</span></figcaption>
+          <svg viewBox="0 0 100.0 34.0" preserveAspectRatio="none" class="bars">
+            <line class="zero" x1="0" y1="17.0" x2="100.0" y2="17.0"/>
+            
+            <rect class="bar-neg"
+                  x="1.1" y="17.0" width="7.8" height="16.0">
+              <title>08/24 · -18,011억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="11.1" y="17.0" width="7.8" height="11.16">
+              <title>08/25 · -12,562억</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="21.1" y="11.09" width="7.8" height="5.91">
+              <title>08/26 · 6,656억</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="31.1" y="13.71" width="7.8" height="3.29">
+              <title>08/27 · 3,700억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="41.1" y="17.0" width="7.8" height="4.44">
+              <title>08/28 · -5,003억</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="51.1" y="16.96" width="7.8" height="0.6">
+              <title>08/31 · 40억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="61.1" y="17.0" width="7.8" height="1.61">
+              <title>09/01 · -1,815억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="71.1" y="17.0" width="7.8" height="2.96">
+              <title>09/02 · -3,327억</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="81.1" y="16.8" width="7.8" height="0.6">
+              <title>09/03 · 229억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="91.1" y="17.0" width="7.8" height="0.6">
+              <title>09/04 · -286억</title>
+            </rect>
+            
+          </svg>
+          <div class="chart-axis"><span>08/24</span><span>09/04</span></div>
+        </figure>
+        
+      
+        
+        
+        <figure class="chart">
+          <figcaption>SK하이닉스 <span class="muted">(억)</span></figcaption>
+          <svg viewBox="0 0 100.0 34.0" preserveAspectRatio="none" class="bars">
+            <line class="zero" x1="0" y1="17.0" x2="100.0" y2="17.0"/>
+            
+            <rect class="bar-neg"
+                  x="1.1" y="17.0" width="7.8" height="12.53">
+              <title>08/24 · -15,635억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="11.1" y="17.0" width="7.8" height="16.0">
+              <title>08/25 · -19,957억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="21.1" y="17.0" width="7.8" height="3.09">
+              <title>08/26 · -3,850억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="31.1" y="17.0" width="7.8" height="2.18">
+              <title>08/27 · -2,725억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="41.1" y="17.0" width="7.8" height="2.4">
+              <title>08/28 · -2,995억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="51.1" y="17.0" width="7.8" height="2.72">
+              <title>08/31 · -3,391억</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="61.1" y="15.74" width="7.8" height="1.26">
+              <title>09/01 · 1,570억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="71.1" y="17.0" width="7.8" height="8.53">
+              <title>09/02 · -10,641억</title>
+            </rect>
+            
+            <rect class="bar-neg"
+                  x="81.1" y="17.0" width="7.8" height="3.06">
+              <title>09/03 · -3,815억</title>
+            </rect>
+            
+            <rect class="bar-pos"
+                  x="91.1" y="12.9" width="7.8" height="4.1">
+              <title>09/04 · 5,118억</title>
+            </rect>
+            
+          </svg>
+          <div class="chart-axis"><span>08/24</span><span>09/04</span></div>
+        </figure>
+        
+      
+    </div>
+
+    <table class="flow-table daily-table">
+      <thead><tr>
+        <th>날짜</th><th class="num">KOSPI 현물(억)</th><th class="num">선물(계약)</th>
+        <th class="num">삼성전자(억)</th><th class="num">SK하이닉스(억)</th>
+      </tr></thead>
+      <tbody>
+      
+        <tr>
+          <td>08/24</td>
+          <td class="num neg">-36,691</td>
+          <td class="num pos">
+            +2,657</td>
+          
+          <td class="num neg">
+            -18,011</td>
+          
+          <td class="num neg">
+            -15,635</td>
+          
+        </tr>
+      
+        <tr>
+          <td>08/25</td>
+          <td class="num neg">-38,140</td>
+          <td class="num neg">
+            -357</td>
+          
+          <td class="num neg">
+            -12,562</td>
+          
+          <td class="num neg">
+            -19,957</td>
+          
+        </tr>
+      
+        <tr>
+          <td>08/26</td>
+          <td class="num neg">-1,148</td>
+          <td class="num pos">
+            +3,856</td>
+          
+          <td class="num pos">
+            6,656</td>
+          
+          <td class="num neg">
+            -3,850</td>
+          
+        </tr>
+      
+        <tr>
+          <td>08/27</td>
+          <td class="num pos">1,333</td>
+          <td class="num pos">
+            +5,801</td>
+          
+          <td class="num pos">
+            3,700</td>
+          
+          <td class="num neg">
+            -2,725</td>
+          
+        </tr>
+      
+        <tr>
+          <td>08/28</td>
+          <td class="num neg">-8,525</td>
+          <td class="num pos">
+            +2,289</td>
+          
+          <td class="num neg">
+            -5,003</td>
+          
+          <td class="num neg">
+            -2,995</td>
+          
+        </tr>
+      
+        <tr>
+          <td>08/31</td>
+          <td class="num neg">-6,434</td>
+          <td class="num pos">
+            +1,377</td>
+          
+          <td class="num pos">
+            40</td>
+          
+          <td class="num neg">
+            -3,391</td>
+          
+        </tr>
+      
+        <tr>
+          <td>09/01</td>
+          <td class="num neg">-4,968</td>
+          <td class="num neg">
+            -3,237</td>
+          
+          <td class="num neg">
+            -1,815</td>
+          
+          <td class="num pos">
+            1,570</td>
+          
+        </tr>
+      
+        <tr>
+          <td>09/02</td>
+          <td class="num neg">-19,173</td>
+          <td class="num neg">
+            -8,107</td>
+          
+          <td class="num neg">
+            -3,327</td>
+          
+          <td class="num neg">
+            -10,641</td>
+          
+        </tr>
+      
+        <tr>
+          <td>09/03</td>
+          <td class="num pos">414</td>
+          <td class="num pos">
+            +3,077</td>
+          
+          <td class="num pos">
+            229</td>
+          
+          <td class="num neg">
+            -3,815</td>
+          
+        </tr>
+      
+        <tr>
+          <td>09/04</td>
+          <td class="num pos">4,796</td>
+          <td class="num pos">
+            +7,793</td>
+          
+          <td class="num neg">
+            -286</td>
+          
+          <td class="num pos">
+            5,118</td>
+          
+        </tr>
+      
+      </tbody>
+    </table>
+    <p class="caveat">기간 합계만 보면 <b>언제 방향이 바뀌었는지</b> 모른다.
+      합계가 순매도여도 마지막 며칠이 순매수면 해석이 달라진다.</p>
+  </section>
+  
+
+  
+  <section class="panel">
+    <h2>미결제약정 <span class="muted">(20260904 · 전일 20260903)</span></h2>
+    <div class="oi-head">
+      <div><span>총 미결제</span><b>168,162</b><em>계약</em></div>
+      
+      
+      <div><span>전일 대비</span><b class="pos">+1,233</b><em>계약</em></div>
+      
+      
+      <div><span>정규 / 야간</span><b>168,162 / 167,692</b>
+        <em class="neg">-470</em></div>
+      
+      
+        
+        
+        <div class="oi-verdict oi-weak-up">최근월물 <b>숏커버링</b></div>
+      
+    </div>
+    <table class="flow-table">
+      <thead><tr><th>월물</th><th class="num">미결제</th><th class="num">전일대비</th><th class="num">가격증감</th><th>해석</th></tr></thead>
+      <tbody>
+      
+        
+        <tr>
+          <td>F 202609</td>
+          <td class="num">147,443</td>
+          <td class="num neg">
+            -1,253</td>
+          <td class="num pos">
+            22.5</td>
+          <td><span class="oi-tag oi-weak-up">숏커버링</span></td>
+        </tr>
+      
+        
+        <tr>
+          <td>F 202612</td>
+          <td class="num">12,637</td>
+          <td class="num pos">
+            +2,158</td>
+          <td class="num pos">
+            25.2</td>
+          <td><span class="oi-tag oi-up">신규 매수 진입</span></td>
+        </tr>
+      
+        
+        <tr>
+          <td>F 202703</td>
+          <td class="num">4,251</td>
+          <td class="num pos">
+            +300</td>
+          <td class="num ">
+            —</td>
+          <td><span class="oi-tag oi-unknown">판단 보류</span></td>
+        </tr>
+      
+        
+        <tr>
+          <td>F 202706</td>
+          <td class="num">1,776</td>
+          <td class="num ">
+            +0</td>
+          <td class="num ">
+            —</td>
+          <td><span class="oi-tag oi-unknown">판단 보류</span></td>
+        </tr>
+      
+        
+        <tr>
+          <td>F 202712</td>
+          <td class="num">1,888</td>
+          <td class="num neg">
+            -36</td>
+          <td class="num ">
+            —</td>
+          <td><span class="oi-tag oi-unknown">판단 보류</span></td>
+        </tr>
+      
+        
+        <tr>
+          <td>F 202812</td>
+          <td class="num">167</td>
+          <td class="num pos">
+            +64</td>
+          <td class="num ">
+            —</td>
+          <td><span class="oi-tag oi-unknown">판단 보류</span></td>
+        </tr>
+      
+      </tbody>
+    </table>
+    <p class="caveat">미결제약정은 <b>포지션의 순증감</b>이다. 거래량과 달리 차익·헤지 회전이 상쇄되므로,
+      <b>가격 방향과 함께</b> 봐야 신규 진입인지 청산인지 갈린다.</p>
+  </section>
+  
+
+  
+  <section class="panel">
+    <h2>외국인 순매수 상위 <span class="muted">(KOSPI)</span></h2>
+    <table class="flow-table">
+      <thead><tr><th>종목</th><th>티커</th><th class="num">순매수(억)</th></tr></thead>
+      <tbody>
+      
+        <tr><td>우리금융지주</td><td class="muted">316140</td>
+            <td class="num pos">3,800</td></tr>
+      
+        <tr><td>삼성전기</td><td class="muted">009150</td>
+            <td class="num pos">3,777</td></tr>
+      
+        <tr><td>SK스퀘어</td><td class="muted">402340</td>
+            <td class="num pos">1,939</td></tr>
+      
+        <tr><td>대한항공</td><td class="muted">003490</td>
+            <td class="num pos">1,876</td></tr>
+      
+        <tr><td>대덕전자</td><td class="muted">353200</td>
+            <td class="num pos">1,419</td></tr>
+      
+        <tr><td>한미반도체</td><td class="muted">042700</td>
+            <td class="num pos">1,078</td></tr>
+      
+        <tr><td>SK</td><td class="muted">034730</td>
+            <td class="num pos">877</td></tr>
+      
+        <tr><td>한국금융지주</td><td class="muted">071050</td>
+            <td class="num pos">808</td></tr>
+      
+        <tr><td>한화오션</td><td class="muted">042660</td>
+            <td class="num pos">624</td></tr>
+      
+        <tr><td>OCI홀딩스</td><td class="muted">010060</td>
+            <td class="num pos">623</td></tr>
+      
+      </tbody>
+    </table>
+    
+    <p class="caveat">지수 전체로는 순매도인데 이 종목들은 사고 있다 — <b>지수 매도와 종목 매수가 갈린다</b>.</p>
+    
+  </section>
+  
+
+  
+  
+</div>
+
+  </main>
+
+  <footer class="footer">
+    <span>localhost:8787 · Phase 1 (컨트롤 타워) + Phase 2 (랜딩) + Phase 3 (위키 검색)</span>
+  </footer>
+  
+  <footer class="public-disclaimer">
+    <p><b>출처</b> · 금융감독원 전자공시시스템(DART) 정기보고서 「II. 사업의 내용 &gt; 매출 및 수주상황」 원문에서 직접 추출. 공공데이터를 가공한 2차 저작물이며 원자료의 권리는 각 공시 주체에 있습니다.</p>
+    <p><b>면책</b> · 본 페이지는 <b>정보 제공 목적</b>이며 <b>투자 권유나 자문이 아닙니다</b>. 수치는 공시 원문을 자동 파싱한 값으로 오류가 있을 수 있고, 갱신 시점 이후의 변동은 반영되지 않습니다. 투자 판단과 그 결과에 대한 책임은 이용자 본인에게 있으며, 작성자는 어떠한 손해에 대해서도 책임지지 않습니다.</p>
+    <p><b>갱신</b> · 기본 분기 1회(정기보고서 시즌). 마지막 빌드 2026-09-05 01:05</p>
+  </footer>
+  
+</body>
+</html>

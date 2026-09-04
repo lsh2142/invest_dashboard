@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>투자 에이전트 대시보드</title>
+  <script src="/static/vendor/htmx.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css?v=1788186873">
+  
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <strong>Mission Control</strong>
+      <span class="brand-sub">투자 에이전트</span>
+    </div>
+    <nav class="tabs">
+    
+    
+      <a href="/backlog" class="tab is-active">수주잔고×실적</a>
+      <a href="/sectors" class="tab ">수주잔고 섹터</a>
+    
+    <a href="/clusters" class="tab ">테마별 2Q실적</a>
+    
+      <a href="/flows" class="tab ">외국인 수급</a>
+      
+    
+    </nav>
+  </header>
+
+  <main>
+    
+<div class="bl-detail">
+  <header class="bl-detail-head">
+    <a class="back" href="/backlog">← 목록</a>
+    <h2>현대건설</h2>
+    <span class="code">000720</span>
+    <span class="grp">건설</span>
+    <span class="sig sig-동반강세">동반강세</span>
+  </header>
+
+  
+
+  
+  <div class="warn-box">
+    <strong>램프업</strong> —
+    영업활동현금흐름 -1,677,087
+    (CF/OP -6.41).
+    
+      수주잔고가 +54.3% 늘어 있다. 현금은 마르지만 앞으로 매출로 바뀔 것이 쌓여 있는 국면이다.
+    
+  </div>
+  
+
+  
+  <div class="warn-box"><strong>교차 확인</strong> — 잔고↑ 재고적체 — 수주가 매출로 전환되지 않는다</div>
+  
+
+  
+  <div class="reason-box">
+    <span class="badge">재고자산 교차확인</span>
+    수주잔고를 공시하지 않는 기업이라 재고자산으로 대신 본다.
+    재고 927,083 · QoQ +25.8%
+    · YoY +21.5%
+    · 커버리지 0.04x
+    <span class="sig sig-inv">재고적체</span>
+  </div>
+  
+
+  <dl class="bl-mini">
+    <div><dt>최근 수주잔고</dt><dd>30,711,443</dd></div>
+    <div><dt>5년 최대</dt><dd>51,000,500</dd></div>
+    <div><dt>커버리지</dt><dd>1.17x</dd></div>
+    <div><dt>관측 분기</dt><dd>22/22</dd></div>
+    <div><dt>영업이익</dt><dd>2,618</dd></div>
+    <div><dt>비교 기준</dt><dd>컨센서스 대비</dd></div>
+  </dl>
+
+  
+
+  <table class="bl-series">
+    <thead><tr><th>분기</th><th class="num">수주잔고</th></tr></thead>
+    <tbody>
+      
+      <tr><td>2021Q1</td><td class="num">23,774,079</td></tr>
+      
+      <tr><td>2021Q2</td><td class="num">25,310,050</td></tr>
+      
+      <tr><td>2021Q3</td><td class="num">26,274,181</td></tr>
+      
+      <tr><td>2021Q4</td><td class="num">25,386,104</td></tr>
+      
+      <tr><td>2022Q1</td><td class="num">24,929,821</td></tr>
+      
+      <tr><td>2022Q2</td><td class="num">23,900,191</td></tr>
+      
+      <tr><td>2022Q3</td><td class="num">26,684,364</td></tr>
+      
+      <tr><td>2022Q4</td><td class="num">45,100,135</td></tr>
+      
+      <tr><td>2023Q1</td><td class="num">43,147,715</td></tr>
+      
+      <tr><td>2023Q2</td><td class="num">51,000,500</td></tr>
+      
+      <tr><td>2023Q3</td><td class="num">49,047,000</td></tr>
+      
+      <tr><td>2023Q4</td><td class="num">44,934,718</td></tr>
+      
+      <tr><td>2024Q1</td><td class="num">47,745,538</td></tr>
+      
+      <tr><td>2024Q2</td><td class="num">44,664,890</td></tr>
+      
+      <tr><td>2024Q3</td><td class="num">40,109,995</td></tr>
+      
+      <tr><td>2024Q4</td><td class="num">25,961,035</td></tr>
+      
+      <tr><td>2025Q1</td><td class="num">24,702,755</td></tr>
+      
+      <tr><td>2025Q2</td><td class="num">42,783,133</td></tr>
+      
+      <tr><td>2025Q3</td><td class="num">24,483,047</td></tr>
+      
+      <tr><td>2025Q4</td><td class="num">21,386,276</td></tr>
+      
+      <tr><td>2026Q1</td><td class="num">19,897,474</td></tr>
+      
+      <tr><td>2026Q2</td><td class="num">30,711,443</td></tr>
+      
+    </tbody>
+  </table>
+
+  <p class="foot-note">
+    출처: 각 사 정기보고서 「II. 사업의 내용 &gt; 매출 및 수주상황」.
+    <a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=[&#39;20210517001151&#39;, &#39;20210817002181&#39;, &#39;20211115001832&#39;, &#39;20220325001068&#39;, &#39;20220516002639&#39;, &#39;20220816002063&#39;, &#39;20221114002493&#39;, &#39;20230315001104&#39;, &#39;20230515001656&#39;, &#39;20230811002236&#39;, &#39;20231114002527&#39;, &#39;20240329003141&#39;, &#39;20240516002107&#39;, &#39;20240814002457&#39;, &#39;20241114002820&#39;, &#39;20250312001136&#39;, &#39;20250515001248&#39;, &#39;20250814002545&#39;, &#39;20251114001296&#39;, &#39;20260318001395&#39;, &#39;20260515002899&#39;, &#39;20260814003360&#39;]" target="_blank" rel="noopener">DART 원문 열기</a>
+  </p>
+</div>
+
+  </main>
+
+  <footer class="footer">
+    <span>localhost:8787 · Phase 1 (컨트롤 타워) + Phase 2 (랜딩) + Phase 3 (위키 검색)</span>
+  </footer>
+  
+  <footer class="public-disclaimer">
+    <p><b>출처</b> · 금융감독원 전자공시시스템(DART) 정기보고서 「II. 사업의 내용 &gt; 매출 및 수주상황」 원문에서 직접 추출. 공공데이터를 가공한 2차 저작물이며 원자료의 권리는 각 공시 주체에 있습니다.</p>
+    <p><b>면책</b> · 본 페이지는 <b>정보 제공 목적</b>이며 <b>투자 권유나 자문이 아닙니다</b>. 수치는 공시 원문을 자동 파싱한 값으로 오류가 있을 수 있고, 갱신 시점 이후의 변동은 반영되지 않습니다. 투자 판단과 그 결과에 대한 책임은 이용자 본인에게 있으며, 작성자는 어떠한 손해에 대해서도 책임지지 않습니다.</p>
+    <p><b>갱신</b> · 기본 분기 1회(정기보고서 시즌). 마지막 빌드 2026-09-05 01:05</p>
+  </footer>
+  
+</body>
+</html>
