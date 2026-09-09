@@ -1,0 +1,229 @@
+/* 옛 리포트(earnings_tracker/reports/sector_full_20260815.html) 양식 복원.
+ *
+ * 전부 .cluster-report 안에서만 적용된다. 옛 리포트는 --card·--border·
+ * --text-dim 같은 자체 변수명을 쓰는데 전역에 풀면 기존 4개 탭의 팔레트와
+ * 섞이므로, 여기서 대시보드 팔레트에 매핑해 놓고 그 안에서만 쓴다. */
+
+.cluster-report {
+  --card: var(--panel);
+  --border: var(--line);
+  --text-dim: var(--muted);
+  --accent: #818cf8;
+  --green-r: #22c55e;
+  --green-bg: rgba(34,197,94,.08);
+  --green-light: #4ade80;
+  --red-r: #ef4444;
+  --red-bg: rgba(239,68,68,.08);
+  --red-light: #f87171;
+  --orange: #f97316;
+  --neutral: #94a3b8;
+}
+
+/* ---- 요약 카드 ---- */
+.cluster-report .cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px; margin: 20px 0 8px;
+}
+.cluster-report .card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; text-align: center;
+}
+.cluster-report .card .label {
+  font-size: .8rem; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.cluster-report .card .value { font-size: 2rem; font-weight: 700; margin-top: 4px; }
+.cluster-report .card .sub { font-size: .8rem; color: var(--text-dim); margin-top: 2px; }
+.cluster-report .card.green .value { color: var(--green-r); }
+.cluster-report .card.red .value { color: var(--red-r); }
+.cluster-report .card.yellow .value { color: #eab308; }
+.cluster-report .card.blue .value { color: var(--accent); }
+
+/* ---- 도넛 ---- */
+.cluster-report .chart-section {
+  display: flex; gap: 40px; align-items: center; justify-content: center;
+  margin: 24px 0; flex-wrap: wrap;
+}
+.cluster-report .donut-wrap { position: relative; width: 180px; height: 180px; }
+.cluster-report .donut {
+  width: 180px; height: 180px; border-radius: 50%;
+  mask: radial-gradient(circle 55px, transparent 98%, black 100%);
+  -webkit-mask: radial-gradient(circle 55px, transparent 98%, black 100%);
+}
+.cluster-report .donut-center {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%); text-align: center;
+}
+.cluster-report .donut-center .big { font-size: 1.6rem; font-weight: 700; }
+.cluster-report .donut-center .small { font-size: .7rem; color: var(--text-dim); }
+.cluster-report .legend { display: flex; flex-direction: column; gap: 8px; min-width: 220px; }
+.cluster-report .legend-item { display: flex; align-items: center; gap: 8px; font-size: .85rem; }
+.cluster-report .legend-color { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+.cluster-report .legend-item .cnt {
+  color: var(--text-dim); margin-left: auto; min-width: 50px; text-align: right;
+}
+
+/* ---- 섹션 ---- */
+.cluster-report .section { margin-top: 40px; }
+.cluster-report .section h2 {
+  font-size: 1.35rem; font-weight: 700; margin-bottom: 18px;
+  padding-bottom: 12px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+
+/* ---- 표 ---- */
+.cluster-report .table-wrap {
+  overflow-x: auto; border: 1px solid var(--border);
+  border-radius: 12px; background: var(--card);
+}
+.cluster-report table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.cluster-report thead { background: rgba(255,255,255,.03); }
+.cluster-report th {
+  padding: 10px 12px; text-align: left; font-weight: 600; color: var(--text-dim);
+  font-size: .78rem; text-transform: uppercase; letter-spacing: .04em;
+  white-space: nowrap; border-bottom: 1px solid var(--border);
+}
+.cluster-report th.num, .cluster-report td.num { text-align: right; }
+.cluster-report td {
+  padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.04); white-space: nowrap;
+}
+.cluster-report tr:last-child td { border-bottom: none; }
+.cluster-report tr:hover { background: rgba(255,255,255,.02); }
+.cluster-report td.name { font-weight: 500; }
+.cluster-report td.div { font-weight: 600; }
+
+/* ---- 등급 색상 ---- */
+.cluster-report .strong-beat { color: var(--green-r); }
+.cluster-report .beat { color: var(--green-light); }
+.cluster-report .inline { color: var(--neutral); }
+.cluster-report .miss { color: var(--red-light); }
+.cluster-report .strong-miss { color: var(--red-r); }
+.cluster-report tr.strong-beat { background: var(--green-bg); }
+.cluster-report tr.beat { background: rgba(74,222,128,.04); }
+.cluster-report tr.miss { background: rgba(248,113,113,.04); }
+.cluster-report tr.strong-miss { background: var(--red-bg); }
+
+.cluster-report .grade-badge {
+  display: inline-block; padding: 2px 8px; border-radius: 6px;
+  font-size: .72rem; font-weight: 600; white-space: nowrap;
+}
+.cluster-report .grade-badge.strong-beat { background: rgba(34,197,94,.15); color: var(--green-r); }
+.cluster-report .grade-badge.beat { background: rgba(74,222,128,.12); color: var(--green-light); }
+.cluster-report .grade-badge.inline { background: rgba(148,163,184,.12); color: var(--neutral); }
+.cluster-report .grade-badge.miss { background: rgba(248,113,113,.12); color: var(--red-light); }
+.cluster-report .grade-badge.strong-miss { background: rgba(239,68,68,.15); color: var(--red-r); }
+.cluster-report .grade-badge.nodata { background: rgba(110,118,129,.15); color: var(--gray); }
+
+.cluster-report .tag-yoy, .cluster-report .tag-tg {
+  display: inline-block; padding: 1px 6px; border-radius: 4px;
+  font-size: .65rem; font-weight: 600; margin-left: 6px;
+}
+.cluster-report .tag-yoy { background: rgba(148,163,184,.15); color: var(--neutral); }
+.cluster-report .tag-tg { background: rgba(249,115,22,.15); color: var(--orange); }
+
+/* ---- 인사이트 박스 ---- */
+.cluster-report .insight {
+  background: rgba(59,130,246,.08); border: 1px solid rgba(59,130,246,.2);
+  border-radius: 12px; padding: 18px 22px; margin: 20px 0;
+  font-size: .88rem; line-height: 1.7;
+}
+.cluster-report .insight .title {
+  font-weight: 700; font-size: .95rem; margin-bottom: 8px; color: var(--accent);
+}
+.cluster-report .insight strong { color: var(--accent); }
+.cluster-report .insight p { margin: 6px 0; }
+
+/* ---- 아이템 네비 칩 ---- */
+.cluster-report .sector-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+.cluster-report .nav-chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
+  border-radius: 20px; font-size: .82rem; font-weight: 500; text-decoration: none;
+  background: var(--card); border: 1px solid var(--border);
+  transition: all .2s; color: inherit;
+}
+.cluster-report .nav-chip:hover { background: rgba(255,255,255,.05); }
+.cluster-report .nav-chip span { font-weight: 700; }
+
+/* ---- 기본섹터 ---- */
+/* Wilson 순위와 무관하게 고정하는 축이라 시각적으로도 구분한다. */
+.cluster-report .nav-chip.is-core {
+  border-color: var(--accent); background: rgba(129,140,248,.10);
+}
+.cluster-report .core-badge {
+  display: inline-block; padding: 2px 7px; border-radius: 5px;
+  font-size: .68rem; font-weight: 700; letter-spacing: .02em;
+  background: rgba(129,140,248,.16); color: var(--accent);
+  border: 1px solid rgba(129,140,248,.35); vertical-align: middle;
+}
+.cluster-report tr.is-core-row td { background: rgba(129,140,248,.06); }
+
+/* ---- 아이템 카드 ---- */
+.cluster-report .sector-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px; margin: 22px 0;
+}
+.cluster-report .sector-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-wrap: wrap; gap: 16px; margin-bottom: 14px;
+}
+.cluster-report .sector-title { display: flex; align-items: center; flex-wrap: wrap; }
+.cluster-report .sector-title h3 { font-size: 1.15rem; font-weight: 700; margin: 0; }
+.cluster-report .sector-count {
+  font-weight: 400; color: var(--text-dim); font-size: .9rem; margin-left: 4px;
+}
+.cluster-report .sector-metrics { display: flex; gap: 24px; }
+.cluster-report .metric { display: flex; flex-direction: column; align-items: center; }
+.cluster-report .metric-label {
+  font-size: .72rem; color: var(--text-dim); text-transform: uppercase;
+}
+.cluster-report .metric-value { font-size: 1.3rem; font-weight: 700; }
+
+.cluster-report .sync-badge {
+  display: inline-block; padding: 4px 12px; border-radius: 8px;
+  font-size: .78rem; font-weight: 600; margin-left: 12px;
+}
+.cluster-report .sync-badge.sync-beat {
+  background: rgba(34,197,94,.15); color: var(--green-r);
+  border: 1px solid rgba(34,197,94,.3);
+}
+.cluster-report .sync-badge.sync-miss {
+  background: rgba(239,68,68,.15); color: var(--red-r);
+  border: 1px solid rgba(239,68,68,.3);
+}
+
+/* ---- 가로 막대 ---- */
+.cluster-report .bar-chart {
+  height: 8px; border-radius: 4px; display: flex; overflow: hidden; margin: 12px 0 6px;
+}
+.cluster-report .bar-beat { background: var(--green-r); }
+.cluster-report .bar-inline { background: var(--neutral); }
+.cluster-report .bar-miss { background: var(--red-r); }
+.cluster-report .bar-na { background: var(--border); }
+.cluster-report .bar-labels {
+  display: flex; justify-content: space-between;
+  font-size: .75rem; color: var(--text-dim); margin-bottom: 14px;
+}
+.cluster-report .sector-card .table-wrap { margin-top: 8px; }
+
+@media (max-width: 768px) {
+  .cluster-report .cards { grid-template-columns: repeat(2, 1fr); }
+  .cluster-report .chart-section { flex-direction: column; }
+  .cluster-report .sector-header { flex-direction: column; }
+}
+
+/* 두 축 동시(컨센 상회 + YoY 증가) 표시 — 목록 맨 위로 올린 이유를 보이게 한다. */
+.cluster-report .confirmed-star { color: #eab308; font-size: .9rem; }
+.cluster-report .muted { color: var(--text-dim); font-size: .78rem; }
+
+/* ---- 분기 스파크라인 ---- */
+.cluster-report .spark-cell { white-space: nowrap; }
+.cluster-report .spark { width: 96px; height: 22px; vertical-align: middle; overflow: visible; }
+.cluster-report .spark polyline {
+  fill: none; stroke: var(--neutral); stroke-width: 1.5;
+  stroke-linejoin: round; stroke-linecap: round;
+}
+.cluster-report tr.strong-beat .spark polyline { stroke: var(--green-r); }
+.cluster-report tr.beat .spark polyline { stroke: var(--green-light); }
+.cluster-report tr.miss .spark polyline { stroke: var(--red-light); }
+.cluster-report tr.strong-miss .spark polyline { stroke: var(--red-r); }
+.cluster-report .flag { font-size: .75rem; margin-left: 4px; }
