@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>외국인 현선물 수급</title>
   <script src="/static/vendor/htmx.min.js"></script>
-  <link rel="stylesheet" href="/static/style.css?v=1788186873">
+  <link rel="stylesheet" href="/static/style.css?v=1790561826">
   
 </head>
 <body>
@@ -37,13 +37,13 @@
   
 
   <div class="summary">
-    <span class="chip">20260914 ~ 20260925</span>
+    <span class="chip">20260913 ~ 20260923</span>
     
     
-    <span class="chip chip-age" data-epoch="1790327420"
+    <span class="chip chip-age" data-epoch="1790561592"
       data-stale-after="172800"
-      >09/25 18:10 기준</span>
-    <span class="chip chip-bad">수집 실패 3건</span>
+      >09/28 11:13 기준</span>
+    
     <span class="refreshed">평일 18:10 자동 수집</span>
   </div>
 
@@ -135,8 +135,34 @@
     </section>
 
     <section class="panel">
-      <h2>베이시스 <span class="muted">(20260925)</span></h2>
-      <p class="empty">베이시스 수집 실패</p>
+      <h2>베이시스 <span class="muted">(20260923)</span></h2>
+      
+      <table class="flow-table">
+        <thead><tr><th>월물</th><th class="num">종가</th><th class="num">시장</th><th class="num">이론</th><th>상태</th></tr></thead>
+        <tbody>
+        
+          
+          <tr>
+            <td>F 202612</td>
+            <td class="num">1127.75</td>
+            <td class="num pos">1.63</td>
+            <td class="num muted">6.56</td>
+            <td><span class="basis-cheap">저평가</span></td>
+          </tr>
+        
+          
+          <tr>
+            <td>F 202703</td>
+            <td class="num">1112.65</td>
+            <td class="num neg">-13.47</td>
+            <td class="num muted">12.98</td>
+            <td><span class="basis-backwardation">백워데이션</span></td>
+          </tr>
+        
+        </tbody>
+      </table>
+      <p class="caveat">선물이 이론 대비 <b>저평가·백워데이션</b>이면 「선물 사고 현물 파는」 차익거래와 방향이 맞는다.</p>
+      
     </section>
   </div>
 
@@ -484,6 +510,89 @@
   
 
   
+  <section class="panel">
+    <h2>미결제약정 <span class="muted">(20260923 · 전일 20260922)</span></h2>
+    <div class="oi-head">
+      <div><span>총 미결제</span><b>143,586</b><em>계약</em></div>
+      
+      
+      <div><span>전일 대비</span><b class="pos">+2,068</b><em>계약</em></div>
+      
+      
+      <div><span>정규 / 야간</span><b>143,586 / 141,722</b>
+        <em class="neg">-1,864</em></div>
+      
+      
+        
+        
+        <div class="oi-verdict oi-up">최근월물 <b>신규 매수 진입</b></div>
+      
+    </div>
+    <table class="flow-table">
+      <thead><tr><th>월물</th><th class="num">미결제</th><th class="num">전일대비</th><th class="num">가격증감</th><th>해석</th></tr></thead>
+      <tbody>
+      
+        
+        <tr>
+          <td>F 202612</td>
+          <td class="num">134,791</td>
+          <td class="num pos">
+            +2,073</td>
+          <td class="num pos">
+            15.75</td>
+          <td><span class="oi-tag oi-up">신규 매수 진입</span></td>
+        </tr>
+      
+        
+        <tr>
+          <td>F 202703</td>
+          <td class="num">4,409</td>
+          <td class="num neg">
+            -5</td>
+          <td class="num pos">
+            7.65</td>
+          <td><span class="oi-tag oi-weak-up">숏커버링</span></td>
+        </tr>
+      
+        
+        <tr>
+          <td>F 202706</td>
+          <td class="num">2,081</td>
+          <td class="num ">
+            +0</td>
+          <td class="num ">
+            —</td>
+          <td><span class="oi-tag oi-unknown">판단 보류</span></td>
+        </tr>
+      
+        
+        <tr>
+          <td>F 202712</td>
+          <td class="num">2,138</td>
+          <td class="num ">
+            +0</td>
+          <td class="num ">
+            —</td>
+          <td><span class="oi-tag oi-unknown">판단 보류</span></td>
+        </tr>
+      
+        
+        <tr>
+          <td>F 202812</td>
+          <td class="num">167</td>
+          <td class="num ">
+            +0</td>
+          <td class="num ">
+            —</td>
+          <td><span class="oi-tag oi-unknown">판단 보류</span></td>
+        </tr>
+      
+      </tbody>
+    </table>
+    <p class="caveat">미결제약정은 <b>포지션의 순증감</b>이다. 거래량과 달리 차익·헤지 회전이 상쇄되므로,
+      <b>가격 방향과 함께</b> 봐야 신규 진입인지 청산인지 갈린다.</p>
+  </section>
+  
 
   
   <section class="panel">
@@ -531,8 +640,6 @@
   
 
   
-  <p class="caveat caveat-bad">수집 실패 항목: basis, open_interest, product_oi — 빈 값을 0 으로 채우지 않았다.</p>
-  
   
 </div>
 
@@ -567,7 +674,7 @@
     <p><b>출처</b> · 금융감독원 전자공시시스템(DART) 정기보고서 「II. 사업의 내용 &gt; 매출 및 수주상황」 원문에서 직접 추출. 공공데이터를 가공한 2차 저작물이며 원자료의 권리는 각 공시 주체에 있습니다.</p>
     
     <p><b>면책</b> · 본 페이지는 <b>정보 제공 목적</b>이며 <b>투자 권유나 자문이 아닙니다</b>. 수치는 원자료를 자동 파싱한 값으로 오류가 있을 수 있고, 갱신 시점 이후의 변동은 반영되지 않습니다. 투자 판단과 그 결과에 대한 책임은 이용자 본인에게 있으며, 작성자는 어떠한 손해에 대해서도 책임지지 않습니다.</p>
-    <p><b>갱신</b> · 평일 정기 발행 및 수동 갱신. 마지막 빌드 2026-09-25 18:25</p>
+    <p><b>갱신</b> · 매일 6시간 정기 발행 및 수동 갱신. 마지막 빌드 2026-09-28 11:17</p>
   </footer>
   
 </body>

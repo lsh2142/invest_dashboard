@@ -29,13 +29,13 @@ code, pre { font-family: "SF Mono", ui-monospace, Menlo, monospace; }
   padding: 12px 20px; border-bottom: 1px solid var(--line);
   background: var(--panel); position: sticky; top: 0; z-index: 10;
 }
-.brand { display: flex; align-items: center; gap: 8px; }
+.brand { display: flex; align-items: center; gap: 8px; flex-shrink: 0; white-space: nowrap; }
 .brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); }
 .brand-sub { color: var(--muted); font-size: 12px; }
-.tabs { display: flex; gap: 4px; }
+.tabs { display: flex; gap: 4px; min-width: 0; overflow-x: auto; }
 .tab {
   padding: 6px 14px; border-radius: 6px; color: var(--muted);
-  text-decoration: none; font-size: 13px;
+  text-decoration: none; font-size: 13px; flex-shrink: 0; white-space: nowrap;
 }
 .tab.is-active { background: var(--panel-2); color: var(--text); }
 .tab.is-disabled { opacity: .4; cursor: not-allowed; }
@@ -87,7 +87,7 @@ code, pre { font-family: "SF Mono", ui-monospace, Menlo, monospace; }
 .led { width: 9px; height: 9px; border-radius: 50%; flex: none; background: var(--gray); }
 .led-running, .led-ok { background: var(--green); box-shadow: 0 0 6px rgba(63,185,80,.7); }
 .led-error, .led-unloaded { background: var(--red); box-shadow: 0 0 6px rgba(248,81,73,.7); }
-.led-stale { background: var(--yellow); box-shadow: 0 0 6px rgba(227,179,65,.6); }
+.led-stale, .led-warning { background: var(--yellow); box-shadow: 0 0 6px rgba(227,179,65,.6); }
 .led-disabled, .led-unknown { background: var(--gray); }
 
 .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; margin: 0 0 8px; }
@@ -519,3 +519,13 @@ td.alt { color: var(--muted); }
 .chart .bar-neg { fill: #5b9bd5; }
 .chart rect:hover { opacity: .7; }
 .chart-axis { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-top: 3px; }
+
+/* Navigation stays readable on phones; wide data tables scroll in their panels. */
+@media (max-width: 900px) {
+  .topbar { flex-direction: column; align-items: stretch; gap: 8px; padding: 10px 12px; }
+  .tabs { width: 100%; padding-bottom: 4px; }
+  .tab { padding: 6px 10px; }
+}
+
+.table-scroll { max-width: 100%; overflow-x: auto; }
+@media (max-width: 600px) { .quads { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
