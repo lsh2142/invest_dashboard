@@ -13,6 +13,7 @@
   function link(label, url) { const el = node('a', label); try { const parsed = new URL(url); if (['https:', 'http:'].includes(parsed.protocol)) { el.href = parsed.href; el.target = '_blank'; el.rel = 'noopener noreferrer'; } } catch (_) {} return el; }
   const source = id => (data.sources || []).find(s => s.id === id);
   function status(s) { if (!s) return 'unavailable'; if (s.status !== 'ok') return s.status === 'stale' ? 'stale' : 'unavailable'; const age = (Date.now() - Date.parse(s.observed_at)) / 1000; if (!s.observed_at || !Number.isFinite(age)) return 'unavailable'; return finite(s.max_age_seconds) && age > s.max_age_seconds ? 'stale' : 'ok'; }
+  function metricSource(metric) { const s=source(metric.source_id); return {...s, status:finite(metric.value)?(s?.status||'unavailable'):'unavailable', observed_at:metric.observed_at, max_age_seconds:metric.max_age_seconds ?? s?.max_age_seconds}; }
   const badge = s => { const state = status(s); return node('span', { ok: '정상', stale: '갱신 지연', unavailable: '자료 미확인' }[state], 'crypto-badge ' + state); };
   function compact(value, unit = 'USD') { if (!finite(value)) return '—'; const abs = Math.abs(value); const prefix = unit === 'USD' ? '$' : ''; return prefix + (abs >= 1e12 ? number(value / 1e12) + '조' : abs >= 1e8 ? number(value / 1e8) + '억' : abs >= 1e4 ? number(value / 1e4) + '만' : number(value)); }
   function notice(text) { $('notice').textContent = text; $('notice').hidden = !text; }
@@ -25,7 +26,7 @@
       const priceText = finite(price) ? (currency === 'KRW' ? '₩' : '$') + number(price, currency === 'KRW' ? 0 : price < 1 ? 5 : 2) : '—';
       const returns = node('div', undefined, 'crypto-returns'); for (const [label, value] of [['24시간', coin.change_24h], ['7일', coin.change_7d], ['30일', coin.change_30d]]) { const cell = node('div'); cell.append(node('span', label, 'crypto-label'), node('span', signed(value), finite(value) ? value >= 0 ? 'crypto-up' : 'crypto-down' : '')); returns.append(cell); }
       const footer = node('div', undefined, 'crypto-coin-footer'); footer.append(node('span', '시총 ' + compact(coin.market_cap_usd)), node('span', '24h 거래량 ' + compact(coin.volume_24h_usd)));
-      card.append(heading, node('div', priceText, 'crypto-price'), returns, footer, node('div', '시세 ' + time(coin.observed_at) + ' KST · 등락·시총·거래량 USD 기준', 'crypto-coin-time')); container.append(card);
+      card.append(heading, node('div', priceText, 'crypto-price'), returns, footer, node('div', '시세 ' + time(currency === 'KRW' ? coin.krw_observed_at : coin.observed_at) + ' KST · 등락·시총·거래량 USD 기준' + (status(source('markets')) !== 'ok' ? ' · USD 부가지표 갱신 지연' : ''), 'crypto-coin-time')); container.append(card);
     }
     if (!container.children.length) container.append(node('p', '시세를 아직 수집하지 못했습니다. 데이터 갱신을 눌러 다시 확인하세요.', 'crypto-empty'));
   }
@@ -42,7 +43,7 @@
     return svg;
   }
   function renderChart() {
-    const container = $('chart'), legend = $('legend'); container.replaceChildren(); legend.replaceChildren();
+    const container = $('chart'), legend = $('legend'); container.replaceChildren(); legend.replaceChildren(); $('chart-note').textContent='공통 기준일 가격을 100으로 환산한 달러 가격 비교';
     const all = (data.coins || []).map(c => ({...c, points: cleanHistory(c.history).filter(p=>p[1]>0)}));
     const available = all.filter(c=>c.points.length>=2);
     if (available.length < 2) { container.append(node('div', '같은 기간의 가격 이력이 쌓이면 비교 차트가 표시됩니다.', 'crypto-empty')); return; }
@@ -51,9 +52,9 @@
     const common = available[0].points.map(p=>p[0]).filter(t=>t>=cutoff && t<=last && sets.every(s=>s.has(t)));
     if(common.length < 2) { container.append(node('div', '공통 기준일의 가격 이력이 부족합니다. 다른 기간을 선택해 주세요.', 'crypto-empty')); return; }
     const commonSet = new Set(common), first = common[0];
-    const series = available.map(c=>{ const base = c.points.find(p=>p[0]===first)[1]; return {label:c.symbol,color:colors[c.id],points:c.points.filter(p=>commonSet.has(p[0])).map(p=>[p[0],p[1]/base*100])}; });
-    $('chart-note').textContent = `공통 기준일 ${time(new Date(first).toISOString())} KST = 100 · 달러 가격 · 실제 ${Math.round((common.at(-1)-first)/86400000)}일 구간`;
-    for(const s of series) { const item = node('span', `${s.label} ${signed(s.points.at(-1)[1]-100)}`); item.style.setProperty('--coin',s.color); legend.append(item); }
+    const series = available.map(c=>{ const base = c.points.find(p=>p[0]===first)[1]; return {id:c.id,label:c.symbol,color:colors[c.id],points:c.points.filter(p=>commonSet.has(p[0])).map(p=>[p[0],p[1]/base*100])}; });
+    $('chart-note').textContent = `공통 기준일 ${time(new Date(first).toISOString())} ~ ${time(new Date(common.at(-1)).toISOString())} KST · 시작 = 100 · 달러 가격 · 실제 ${Math.round((common.at(-1)-first)/86400000)}일 구간`;
+    for(const s of series) { const item = node('span', `${s.label} ${signed(s.points.at(-1)[1]-100)}`); item.style.setProperty('--coin',s.color); item.append(document.createTextNode(' '),badge({...source('history_'+s.id),observed_at:new Date(s.points.at(-1)[0]).toISOString()})); legend.append(item); }
     for(const c of all.filter(c=>!available.includes(c))) legend.append(node('span',c.symbol+' 이력 미확인'));
     container.append(chart(series));
   }
@@ -65,7 +66,7 @@
     for (const metric of metrics) { const card = node('article',undefined,'crypto-metric'), value=node('div',undefined,'crypto-metric-value'), [amount,unit]=metricValue(metric); value.append(document.createTextNode(amount)); if(unit)value.append(node('small',unit)); card.append(node('h3',metric.label),value);
       card.append(node('div',finite(metric.change_30d)?'30일 변화 '+(metric.change_30d>0?'+':'')+number(metric.change_30d)+(metric.unit==='%'?'%p':' '+(metric.unit||'')):'30일 변화 —','crypto-change'));
       const history=cleanHistory(metric.history); if(history.length>=2){const holder=node('div',undefined,'crypto-spark');holder.append(chart([{label:metric.label,color:colors[group==='canton'?'canton-network':group],points:history}],true));card.append(holder);}
-      card.append(node('p',metric.note || '원자료 기준으로 확인합니다.','crypto-metric-note')); const meta=node('div',undefined,'crypto-metric-meta');meta.append(badge(source(metric.source_id)),node('span',time(metric.observed_at)+' KST'));const s=source(metric.source_id);if(s)meta.append(link(s.name,s.url));card.append(meta);container.append(card);
+      card.append(node('p',metric.note || '원자료 기준으로 확인합니다.','crypto-metric-note')); const meta=node('div',undefined,'crypto-metric-meta');meta.append(badge(metricSource(metric)),node('span',time(metric.observed_at)+' KST'));const s=source(metric.source_id);if(s)meta.append(link(s.name,s.url));card.append(meta);container.append(card);
     }
     if(!metrics.length)container.append(node('p','이 코인의 지표가 아직 준비되지 않았습니다. 아래 원자료에서 확인할 수 있습니다.','crypto-empty'));
     const links=$('links');links.replaceChildren();for(const item of (data.links||[]).filter(l=>l.group===group||l.group==='market')){const block=node('div');block.append(link(item.label,item.url));if(item.note)block.append(node('span',item.note,'crypto-link-note'));links.append(block);}
@@ -76,6 +77,6 @@
   root.querySelectorAll('[data-currency]').forEach(button=>button.addEventListener('click',()=>{currency=button.dataset.currency;root.querySelectorAll('[data-currency]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));if(data)renderCoins();}));
   root.querySelectorAll('[data-days]').forEach(button=>button.addEventListener('click',()=>{days=Number(button.dataset.days);root.querySelectorAll('[data-days]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));if(data)renderChart();}));
   const tabs=[...root.querySelectorAll('[data-group]')];tabs.forEach((button,index)=>{button.addEventListener('click',()=>{group=button.dataset.group;tabs.forEach(b=>{b.setAttribute('aria-selected',String(b===button));b.tabIndex=b===button?0:-1;});if(data)renderMetrics();});button.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=(index+1)%tabs.length;if(event.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;if(event.key==='Home')next=0;if(event.key==='End')next=tabs.length-1;if(next!==undefined){event.preventDefault();tabs[next].focus();tabs[next].click();}});});
-  $('refresh').addEventListener('click',async()=>{const button=$('refresh');button.disabled=true;button.textContent='갱신 요청 중';try{const response=await fetch('/api/crypto/refresh',{method:'POST',headers:{Accept:'application/json'}});if(!response.ok)throw new Error('http');notice('자료를 수집하고 있습니다. 새 값이 준비되면 자동으로 표시합니다.');setTimeout(load,5000);}catch(_){notice('갱신을 요청하지 못했습니다. 잠시 후 다시 시도해 주세요.');}finally{button.disabled=false;button.textContent='데이터 갱신';}});
+  $('refresh').addEventListener('click',async()=>{const button=$('refresh');button.disabled=true;button.textContent='갱신 요청 중';try{const response=await fetch('/api/crypto/refresh',{method:'POST',headers:{Accept:'application/json'}});if(!response.ok)throw new Error('http');const result=await response.json();notice(result.status==='recent'?'최근 수집 자료가 있습니다. 자동 갱신 주기에 다시 확인합니다.':result.status==='running'?'이미 자료를 수집하고 있습니다. 새 값이 준비되면 자동으로 표시합니다.':'자료를 수집하고 있습니다. 새 값이 준비되면 자동으로 표시합니다.');setTimeout(load,5000);}catch(_){notice('갱신을 요청하지 못했습니다. 잠시 후 다시 시도해 주세요.');}finally{button.disabled=false;button.textContent='데이터 갱신';}});
   load();setInterval(load,60000);
 })();
