@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>크립토 관측 · 투자 대시보드</title>
+  <script src="/static/vendor/htmx.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css?v=1790561826">
+  
+<link rel="stylesheet" href="/static/crypto.css?v=1790915363">
+<script src="/static/crypto_public.js" defer></script>
+
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <strong>Mission Control</strong>
+      <span class="brand-sub">투자 에이전트</span>
+    </div>
+    <nav class="tabs">
+    
+    
+      <a href="/backlog" class="tab ">수주잔고×실적</a>
+      <a href="/sectors" class="tab ">수주잔고 섹터</a>
+    
+    <a href="/clusters" class="tab ">테마별 2Q실적</a>
+      <a href="/petrochem" class="tab ">석화 가격·스프레드</a>
+      <a href="/crypto" class="tab is-active">크립토</a>
+      <a href="/credit" class="tab ">채권·유동성</a>
+    
+      <a href="/flows" class="tab ">외국인 수급</a>
+      <a href="/technicals" class="tab ">차트 레이더</a>
+      <a href="/decisions" class="tab ">투자 판단</a>
+      
+    
+    </nav>
+  </header>
+
+  <main>
+    
+<div class="crypto" id="crypto-dashboard">
+  <header class="crypto-heading"><div><h1>크립토 관측</h1><p>비트코인 · 이더리움 · 캔톤의 가격, 공급, 네트워크 수요</p></div><div class="crypto-actions"><div class="crypto-segment" aria-label="가격 표시 통화"><button type="button" data-currency="USD" aria-pressed="true">USD</button><button type="button" data-currency="KRW" aria-pressed="false">KRW</button></div></div></header>
+  <p class="crypto-reading">공개 발행은 6시간 주기입니다. 각 지표의 자료 기준 시각과 갱신 지연 여부를 확인하세요.</p>
+  <p id="crypto-notice" class="crypto-notice" role="status" hidden></p>
+  <div class="crypto-status"><span id="crypto-updated">데이터를 확인하고 있습니다.</span><span>모든 시각 한국시간</span></div>
+  <section id="crypto-coins" class="crypto-coins" aria-label="세 코인 시세" aria-busy="true"></section>
+  <section class="crypto-panel crypto-comparison" aria-labelledby="crypto-chart-title"><header class="crypto-section-heading"><div><h2 id="crypto-chart-title">같은 기간, 다른 움직임</h2><p id="crypto-chart-note">공통 기준일 가격을 100으로 환산한 달러 가격 비교</p></div><div class="crypto-segment" aria-label="비교 기간"><button type="button" data-days="7" aria-pressed="false">7일</button><button type="button" data-days="30" aria-pressed="true">30일</button><button type="button" data-days="90" aria-pressed="false">90일</button></div></header><div id="crypto-legend" class="crypto-legend"></div><div id="crypto-chart" class="crypto-chart"></div></section>
+  <section class="crypto-detail" aria-labelledby="crypto-detail-title"><header class="crypto-section-heading"><div><h2 id="crypto-detail-title">네트워크를 읽는 지표</h2><p>가격 변화와 실사용의 연결을 함께 확인합니다.</p></div><div class="crypto-segment" role="tablist" aria-label="코인 상세"><button type="button" role="tab" id="crypto-tab-ethereum" data-group="ethereum" aria-selected="true" aria-controls="crypto-metrics">이더리움</button><button type="button" role="tab" id="crypto-tab-bitcoin" data-group="bitcoin" aria-selected="false" tabindex="-1" aria-controls="crypto-metrics">비트코인</button><button type="button" role="tab" id="crypto-tab-canton" data-group="canton" aria-selected="false" tabindex="-1" aria-controls="crypto-metrics">캔톤</button></div></header><p class="crypto-reading" id="crypto-reading"></p><div id="crypto-metrics" class="crypto-metrics" role="tabpanel" aria-labelledby="crypto-tab-ethereum"></div><div id="crypto-links" class="crypto-links"></div></section>
+  <details class="crypto-panel crypto-method" open><summary>데이터 출처와 관측 기준</summary><p>가격은 각 제공처의 관측 시각 기준입니다. 수집 시각과 원자료 기준 시각은 다를 수 있습니다. 누락 값은 —로 표시하며, 이전 값이 남아 있어도 갱신 지연을 별도로 표시합니다. 원화 가격은 원화 시세 제공처 기준으로 국내 거래소 가격·김치 프리미엄과 다를 수 있습니다.</p><div class="crypto-source-scroll"><table class="crypto-source-table"><thead><tr><th scope="col">출처</th><th scope="col">상태</th><th scope="col">자료 기준 (KST)</th><th scope="col">수집 시각 (KST)</th></tr></thead><tbody id="crypto-sources"></tbody></table></div></details>
+  <noscript><p class="crypto-notice">대시보드를 보려면 JavaScript를 활성화해 주세요.</p></noscript>
+</div>
+
+  </main>
+
+  
+  
+  <footer class="public-disclaimer">
+    <p><b>출처</b> · CoinGecko, Validator Queue, ultrasound.money, growthepie, DefiLlama, Binance. 각 자료의 관측 시각과 범위를 확인하세요.</p>
+    <p><b>면책</b> · 본 페이지는 <b>정보 제공 목적</b>이며 <b>투자 권유나 자문이 아닙니다</b>. 수치는 원자료를 자동 파싱한 값으로 오류가 있을 수 있고, 갱신 시점 이후의 변동은 반영되지 않습니다. 투자 판단과 그 결과에 대한 책임은 이용자 본인에게 있으며, 작성자는 어떠한 손해에 대해서도 책임지지 않습니다.</p>
+    <p><b>갱신</b> · 매일 6시간 정기 발행 및 수동 갱신. 마지막 빌드 2026-10-02 23:19</p>
+  </footer>
+  
+</body>
+</html>
