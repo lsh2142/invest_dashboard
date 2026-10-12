@@ -7,6 +7,9 @@
   <script src="/static/vendor/htmx.min.js"></script>
   <link rel="stylesheet" href="/static/style.css?v=1790561826">
   
+<link rel="stylesheet" href="/static/canton_activity.css?v=1791082581">
+<script src="/static/canton_activity_public.js" defer></script>
+
 <link rel="stylesheet" href="/static/crypto.css?v=1790915363">
 <script src="/static/crypto_public.js" defer></script>
 
@@ -46,7 +49,22 @@
   <div class="crypto-status"><span id="crypto-updated">데이터를 확인하고 있습니다.</span><span>모든 시각 한국시간</span></div>
   <section id="crypto-coins" class="crypto-coins" aria-label="세 코인 시세" aria-busy="true"></section>
   <section class="crypto-panel crypto-comparison" aria-labelledby="crypto-chart-title"><header class="crypto-section-heading"><div><h2 id="crypto-chart-title">같은 기간, 다른 움직임</h2><p id="crypto-chart-note">공통 기준일 가격을 100으로 환산한 달러 가격 비교</p></div><div class="crypto-segment" aria-label="비교 기간"><button type="button" data-days="7" aria-pressed="false">7일</button><button type="button" data-days="30" aria-pressed="true">30일</button><button type="button" data-days="90" aria-pressed="false">90일</button></div></header><div id="crypto-legend" class="crypto-legend"></div><div id="crypto-chart" class="crypto-chart"></div></section>
-  <section class="crypto-detail" aria-labelledby="crypto-detail-title"><header class="crypto-section-heading"><div><h2 id="crypto-detail-title">네트워크를 읽는 지표</h2><p>가격 변화와 실사용의 연결을 함께 확인합니다.</p></div><div class="crypto-segment" role="tablist" aria-label="코인 상세"><button type="button" role="tab" id="crypto-tab-ethereum" data-group="ethereum" aria-selected="true" aria-controls="crypto-metrics">이더리움</button><button type="button" role="tab" id="crypto-tab-bitcoin" data-group="bitcoin" aria-selected="false" tabindex="-1" aria-controls="crypto-metrics">비트코인</button><button type="button" role="tab" id="crypto-tab-canton" data-group="canton" aria-selected="false" tabindex="-1" aria-controls="crypto-metrics">캔톤</button></div></header><p class="crypto-reading" id="crypto-reading"></p><div id="crypto-metrics" class="crypto-metrics" role="tabpanel" aria-labelledby="crypto-tab-ethereum"></div><div id="crypto-links" class="crypto-links"></div></section>
+  <section class="crypto-panel canton-panel" id="canton-activity" aria-labelledby="canton-title" data-source="/crypto/canton-activity.json">
+  <header class="crypto-section-heading"><div><p class="canton-eyebrow">CANTON · PUBLIC PARTY ACTIVITY</p><h2 id="canton-title" tabindex="-1">Canton 거래 활동</h2><p>공개된 검증자 Party의 거래 참여 건수를 추적합니다.</p></div></header>
+  <p id="canton-status" role="status">거래 활동 자료를 확인하고 있습니다.</p>
+  <div class="canton-stats"><div><span>추적 대상</span><strong id="canton-tracked">—</strong></div><div><span>24h 거래 관측</span><strong id="canton-active">—</strong></div><div><span>24h 자료 완전성</span><strong id="canton-coverage">미확인</strong></div><div><span>마지막 관측 · KST</span><strong id="canton-asof">—</strong></div></div>
+  <details id="canton-details"><summary>검증자별 보기</summary>
+    <div class="canton-toolbar"><div class="crypto-segment" aria-label="거래 활동 기간"><button data-canton-period="24h" aria-pressed="false">24시간</button><button data-canton-period="7d" aria-pressed="true">7일</button><button data-canton-period="30d" aria-pressed="false">30일</button><button data-canton-period="90d" aria-pressed="false">90일</button></div><label>검증자 검색 <input type="search" id="canton-search" placeholder="이름 또는 Party ID"></label></div>
+    <p id="canton-method" class="crypto-reading"></p>
+    <fieldset class="canton-compare"><legend>비교 대상 · 최대 5개</legend><div id="canton-choices"></div></fieldset>
+    <p id="canton-chart-note"></p><div id="canton-chart" class="canton-chart" role="img" aria-label="선택한 검증자의 거래 빈도 비교"></div>
+    <div class="crypto-source-scroll"><table class="canton-table"><caption>추적 대상 내 거래 활동 · 완전한 24시간 자료 우선</caption><thead><tr><th>검증자</th><th>24h 건수</th><th>전일 대비</th><th>7일 건수</th><th>마지막 관측</th><th>자료 상태</th></tr></thead><tbody id="canton-rows"></tbody></table></div>
+    <section id="canton-single" hidden><h3 id="canton-single-title"></h3><p id="canton-single-note"></p><div id="canton-single-chart" class="canton-chart" role="img" aria-label="단일 검증자 거래 빈도"></div></section>
+    <details><summary>차트 데이터 표</summary><div class="crypto-source-scroll canton-data"><table class="canton-table"><thead><tr><th>검증자</th><th>시작 · KST</th><th>종료 · KST</th><th>건수</th></tr></thead><tbody id="canton-points"></tbody></table></div></details>
+    
+  </details>
+</section>
+  <section class="crypto-detail" aria-labelledby="crypto-detail-title"><header class="crypto-section-heading"><div><h2 id="crypto-detail-title">네트워크를 읽는 지표</h2><p>가격 변화와 실사용의 연결을 함께 확인합니다.</p></div><div class="crypto-segment" role="tablist" aria-label="코인 상세"><button type="button" role="tab" id="crypto-tab-ethereum" data-group="ethereum" aria-selected="true" aria-controls="crypto-metrics">이더리움</button><button type="button" role="tab" id="crypto-tab-bitcoin" data-group="bitcoin" aria-selected="false" tabindex="-1" aria-controls="crypto-metrics">비트코인</button><button type="button" role="tab" id="crypto-tab-canton" data-group="canton" aria-selected="false" tabindex="-1" aria-controls="crypto-metrics">캔톤</button></div></header><p class="crypto-reading" id="crypto-reading"></p><a href="#canton-activity" id="canton-jump" hidden>검증자 거래 활동 보기 ↑</a><div id="crypto-metrics" class="crypto-metrics" role="tabpanel" aria-labelledby="crypto-tab-ethereum"></div><div id="crypto-links" class="crypto-links"></div></section>
   <details class="crypto-panel crypto-method" open><summary>데이터 출처와 관측 기준</summary><p>가격은 각 제공처의 관측 시각 기준입니다. 수집 시각과 원자료 기준 시각은 다를 수 있습니다. 누락 값은 —로 표시하며, 이전 값이 남아 있어도 갱신 지연을 별도로 표시합니다. 원화 가격은 원화 시세 제공처 기준으로 국내 거래소 가격·김치 프리미엄과 다를 수 있습니다.</p><div class="crypto-source-scroll"><table class="crypto-source-table"><thead><tr><th scope="col">출처</th><th scope="col">상태</th><th scope="col">자료 기준 (KST)</th><th scope="col">수집 시각 (KST)</th></tr></thead><tbody id="crypto-sources"></tbody></table></div></details>
   <noscript><p class="crypto-notice">대시보드를 보려면 JavaScript를 활성화해 주세요.</p></noscript>
 </div>
@@ -58,7 +76,7 @@
   <footer class="public-disclaimer">
     <p><b>출처</b> · CoinGecko, Validator Queue, ultrasound.money, growthepie, DefiLlama, Binance. 각 자료의 관측 시각과 범위를 확인하세요.</p>
     <p><b>면책</b> · 본 페이지는 <b>정보 제공 목적</b>이며 <b>투자 권유나 자문이 아닙니다</b>. 수치는 원자료를 자동 파싱한 값으로 오류가 있을 수 있고, 갱신 시점 이후의 변동은 반영되지 않습니다. 투자 판단과 그 결과에 대한 책임은 이용자 본인에게 있으며, 작성자는 어떠한 손해에 대해서도 책임지지 않습니다.</p>
-    <p><b>갱신</b> · 매일 6시간 정기 발행 및 수동 갱신. 마지막 빌드 2026-10-04 06:25</p>
+    <p><b>갱신</b> · 매일 6시간 정기 발행 및 수동 갱신. 마지막 빌드 2026-10-13 03:15</p>
   </footer>
   
 </body>
