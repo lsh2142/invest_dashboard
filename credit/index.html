@@ -37,7 +37,25 @@
   <main>
     
 <nav style="padding:12px 16px"><a href="/credit">채권·유동성</a> &nbsp; / &nbsp; <a href="/credit/ai.html">AI 인프라 신용위험 — CRWV · NBIS · ORCL · IREN</a></nav>
-<section style="padding:12px 16px"><h1>채권·유동성</h1><p>공식 공개 자료 기반 · MOVE 제외 · 마지막 공개 빌드 2026-10-17 09:29</p><p>원천 수집 6시간 주기 / 공개 사이트 평일 18:25 자동 발행. 각 지표의 실제 관측일은 아래에서 확인하세요.</p></section>
+<section style="padding:12px 16px"><h1>채권·유동성</h1><p>공식 공개 자료 기반 · MOVE 제외 · 마지막 공개 빌드 2026-10-17 11:41</p><p>원천 수집 6시간 주기 / 공개 사이트 평일 18:25 자동 발행. 각 지표의 실제 관측일은 아래에서 확인하세요.</p></section>
+<link rel="stylesheet" href="/static/liquidity_checks.css?v=1792204808">
+<section class="lqc" id="liquidity-checks" data-url="/credit/liquidity-data.json">
+  <div class="lqc-heading"><div><h2>미국 유동성 체크</h2><p>자금량 · 신용·통화 · 할인율 · 엔캐리 보조지표를 분리해서 확인합니다.</p></div><small>구성 참고: 태린이아빠 Market Dashboard · taerinsdad-market.streamlit.app</small></div>
+  <p id="lqc-status" role="status">공식 원자료를 불러오는 중…</p>
+  <div id="lqc-summary" class="lqc-summary"></div>
+  <div class="lqc-chart-heading"><label>추이 지표 <select id="lqc-series" aria-label="유동성 추이 지표"></select></label><label>기간 <select id="lqc-window" aria-label="유동성 차트 기간"><option value="90">3개월</option><option value="365" selected>1년</option><option value="all">전체</option></select></label></div>
+  <div id="lqc-chart" class="lqc-chart"></div>
+  <div id="lqc-table" class="lqc-table"></div>
+  <details><summary>계산 기준 · 참고 사이트와 다른 점</summary>
+    <p>참고 사이트의 미국 유동성 체크 구성을 참고해 FRED 원자료를 독립 수집합니다. 별점, 엔캐리 위험 점수, 2024년 8월 유사도는 산식·가중치를 검증할 수 없어 재현하지 않습니다. 단일 매매 신호나 자산별 수익 예측을 제공하지 않습니다.</p>
+    <p>참고 유동성 = 연준 자산(WALCL) − TGA 수요일 잔액(WDTGAL) − 국내 ON RRP(RRPONTSYD). 모두 십억 달러로 환산하고 정확히 같은 관측일만 결합합니다. 준비금 실측치와 다른 관찰용 proxy이며, 기존 화면의 준비금 회계 분석에 다시 합산하지 않습니다. TGA 주간 평균(WTREGEN)과 혼용하지 않습니다.</p>
+    <p>은행 총대출·리스(TOTLL)는 사모대출 펀드 시장 전체를 뜻하지 않습니다. 은행 준비금(WRESBAL)은 주간 평균입니다. M2SL은 월간 계절조정 자료이며, 표시 날짜는 공표일이 아닌 관측 월입니다. M2 3개월 연율 = ((최근값 ÷ 3개월 전 값)^4 − 1) × 100, YoY는 12개월 전 관측 월과 비교합니다. 개정 후 최신 시계열이므로 당시 이용 가능했던 빈티지 자료와 다를 수 있습니다.</p>
+    <p>4주 변화는 최신 관측일에서 28일 전 이하의 가장 가까운 실제 관측값과 비교합니다. 추가 간격이 일간 5일·주간 7일을 넘으면 계산하지 않습니다. 5관측 변화는 결측을 제외한 최근 5개 관측 간격입니다. USD/JPY 하락은 엔화 강세이며, 엔화 절상률은 (이전 USD/JPY ÷ 최근 USD/JPY − 1) × 100으로 별도 계산합니다.</p>
+    <p>최신 관측이 일간 7일·주간 21일·월간 100일보다 오래되면 지연 표시합니다. 각 지표의 공표 주기는 다르므로 지연이 곧 수집 장애라는 뜻은 아닙니다. 수집 실패 시 이전 관측을 보존하며 방향 해석을 보류합니다. 금리곡선 확대는 경기 기대·인플레이션·기간 프리미엄 등이 섞여 있어 단독으로 유동성 증가·감소라 판정하지 않습니다.</p>
+  </details>
+  <noscript>이 화면에는 JavaScript가 필요합니다. <a href="/credit/liquidity-data.json">원자료 JSON</a>을 확인할 수 있습니다.</noscript>
+</section>
+<script src="/static/liquidity_checks.js?v=1792204849" defer></script>
 <iframe src="/credit/view.html" title="채권·유동성 공개 대시보드" style="display:block;width:100%;height:calc(100vh - 220px);min-height:720px;border:0;border-radius:12px"></iframe>
 
   </main>
@@ -47,7 +65,7 @@
   <footer class="public-disclaimer">
     <p><b>출처</b> · 연준·미 재무부·SEC 및 FRED의 공식 공개 자료. 자료의 관측일과 범위를 각 지표에 표시합니다. SEC 공시 원문은 회사별 스캔 한도가 있으며, MMF는 확보한 월별 패키지의 보고 보유액입니다. 전체 시장 또는 확정 조달 총액으로 해석하지 않습니다.</p>
     <p><b>면책</b> · 본 페이지는 <b>정보 제공 목적</b>이며 <b>투자 권유나 자문이 아닙니다</b>. 수치는 원자료를 자동 파싱한 값으로 오류가 있을 수 있고, 갱신 시점 이후의 변동은 반영되지 않습니다. 투자 판단과 그 결과에 대한 책임은 이용자 본인에게 있으며, 작성자는 어떠한 손해에 대해서도 책임지지 않습니다.</p>
-    <p><b>갱신</b> · 매일 6시간 정기 발행 및 수동 갱신. 마지막 빌드 2026-10-17 09:29</p>
+    <p><b>갱신</b> · 매일 6시간 정기 발행 및 수동 갱신. 마지막 빌드 2026-10-17 11:41</p>
   </footer>
   
 </body>
