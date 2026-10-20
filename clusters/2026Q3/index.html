@@ -1,0 +1,2227 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>투자 에이전트 대시보드</title>
+  <script src="/static/vendor/htmx.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css?v=1790561826">
+  
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <strong>Mission Control</strong>
+      <span class="brand-sub">투자 에이전트</span>
+    </div>
+    <nav class="tabs">
+    
+    
+      <a href="/backlog" class="tab ">수주잔고×실적</a>
+      <a href="/sectors" class="tab ">수주잔고 섹터</a>
+    
+    <a href="/clusters" class="tab is-active">테마별 3Q실적</a>
+    <a href="/clusters/2026Q2" class="tab">이전 2Q실적</a>
+      <a href="/petrochem" class="tab ">석화 가격·스프레드</a>
+      <a href="/crypto" class="tab ">크립토</a>
+      <a href="/credit" class="tab ">채권·유동성</a>
+    
+      <a href="/flows" class="tab ">외국인 수급</a>
+      <a href="/kr-pullback" class="tab ">국장 눌림목</a>
+      <a href="/technicals" class="tab ">차트 레이더</a>
+      <a href="/decisions" class="tab ">투자 판단</a>
+      
+    
+    </nav>
+  </header>
+
+  <main>
+    
+<link rel="stylesheet" href="/static/clusters.css?v=1788357991">
+
+<div class="cluster-report" data-quarter="2026Q3">
+  <nav class="sector-nav quarter-tabs" aria-label="실적 분기 선택">
+    <a href="/clusters/2026Q3" class="nav-chip is-core" aria-current="page">2026 3Q 실적</a>
+    <a href="/clusters/2026Q2" class="nav-chip " >이전 · 2026 2Q 실적</a>
+  </nav>
+  <h1>2026 · 3분기 실적</h1>
+  
+  <div class="insight">
+    <p><strong>2026년 7~9월 실적 · 발표 진행 중</strong> — DART 원문을 기준으로 수집하고 공개 텔레그램 AWAKE 채널과 대조합니다. 금액은 억원, 누적 실적은 제외합니다.</p>
+    <p>수집 2026-10-20T14:50:55+09:00 · DART 원문 20건 · 텔레그램 금액 대조 15종목.
+      영업이익 미발표 4종목 · 텔레그램만 확보 1종목은 성장 집계에서 제외합니다.</p>
+    <p>텔레그램 예상치와 괴리는 <strong>미확인 참고값</strong>입니다. 연결·별도 기준까지 검증된 컨센서스가 아니므로 ‘두 축 동시’ 판정에 사용하지 않습니다.</p>
+    
+  </div>
+  
+
+
+
+  <div class="cards">
+    <div class="card blue">
+      <div class="label">영업이익 확인</div>
+      <div class="value">16</div>
+      <div class="sub">유니버스 1,205 · 영업익 미확보 1189</div>
+    </div>
+    <div class="card green">
+      <div class="label">호실적</div>
+      <div class="value">56%</div>
+      <div class="sub">9 / 16종목</div>
+    </div>
+    <div class="card yellow">
+      <div class="label">두 축 동시</div>
+      <div class="value">0</div>
+      <div class="sub">컨센 상회 + YoY 증가 · 컨센 보유 0</div>
+    </div>
+    <div class="card">
+      <div class="label">데이터 출처</div>
+      
+      <div class="value" style="font-size:1.3rem">16<span style="font-size:.9rem;color:var(--text-dim)"> DART 잠정</span></div>
+      <div class="sub">확정 0 · 텔레그램 교차 확인</div>
+      
+    </div>
+  </div>
+
+  
+  <div class="chart-section">
+    <div class="donut-wrap">
+      <div class="donut" style="background:conic-gradient(#22c55e 0.0deg 135.0deg,#4ade80 135.0deg 157.5deg,#4ade80 157.5deg 202.5deg,#94a3b8 202.5deg 337.5deg,#ef4444 337.5deg 360.0deg)"></div>
+      <div class="donut-center">
+        <div class="big">56%</div>
+        <div class="small">호실적</div>
+      </div>
+    </div>
+    <div class="legend">
+      
+      <div class="legend-item">
+        <span class="legend-color" style="background:#22c55e"></span>
+        고성장
+        <span class="cnt">6종목</span>
+      </div>
+      
+      <div class="legend-item">
+        <span class="legend-color" style="background:#4ade80"></span>
+        성장
+        <span class="cnt">1종목</span>
+      </div>
+      
+      <div class="legend-item">
+        <span class="legend-color" style="background:#4ade80"></span>
+        흑자전환
+        <span class="cnt">2종목</span>
+      </div>
+      
+      <div class="legend-item">
+        <span class="legend-color" style="background:#94a3b8"></span>
+        보합
+        <span class="cnt">6종목</span>
+      </div>
+      
+      <div class="legend-item">
+        <span class="legend-color" style="background:#ef4444"></span>
+        역성장
+        <span class="cnt">1종목</span>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  <div class="insight">
+    <div class="title">이 화면이 답하는 질문</div>
+    <p>실적이 잘 나온 종목들이 <strong>같은 아이템으로 겹치는가</strong>.
+       한 종목의 서프라이즈는 회사 사정이지만, 같은 아이템이 동시에 좋으면 산업 사이클이다.</p>
+    <p>호실적 = 영업이익 YoY <strong>+15% 이상</strong> 또는 <strong>흑자전환</strong>.
+       정렬은 호실적 비율의 <strong>Wilson 하한(95%)</strong> — 단순 비율이면
+       3종목 중 3개(100%)가 10종목 중 8개(80%)를 이긴다.</p>
+    <p>⭐ <strong>두 축 동시</strong>(★)는 컨센서스를 이겼고 YoY 도 늘어난 종목이다.
+       컨센 보유가 0종목뿐이라 드물지만
+       그만큼 독립적으로 확인된 신호라 <strong>목록 맨 위로 올린다</strong>.
+       등급은 YoY 기준이라 <strong>Beat 가 아니라 성장 어휘</strong>를 쓴다 —
+       컨센이 없는 종목에는 이길 대상이 없다.</p>
+    
+    <p>📈 <strong>비교 이력</strong>: 당기와 전년 동분기만 확인. 중간 분기·3년 평균·연속 성장 판정은 미확인. 원문에서 확인한 금액만 표시하며 결측 분기는 이어 그리지 않습니다.</p>
+    
+    <p>⚠️ 영업익 미확보 <strong>1189개</strong>가 특정 아이템에 몰려 있으면
+       그 아이템의 비율은 신뢰할 수 없다. 분모는 실적을 확보한 종목만 센다.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="icon">📌</span> 기본섹터</h2>
+    <div class="sector-nav">
+      
+        <a class="nav-chip is-core" href="#item-1">
+          🟢 반도체
+          <span class="strong-beat">100%</span>
+        </a>
+      
+        <a class="nav-chip is-core" href="#item-2">
+          🟢 반도체소부장
+          <span class="strong-beat">100%</span>
+        </a>
+      
+        <a class="nav-chip is-core" href="#item-3">
+          🔴 인바운드
+          <span class="">0%</span>
+        </a>
+      
+        <a class="nav-chip is-core" href="#item-4">
+          🔴 방위산업
+          <span class="">0%</span>
+        </a>
+      
+        <a class="nav-chip is-core" href="#item-5">
+          🟢 전력기기
+          <span class="strong-beat">100%</span>
+        </a>
+      
+        <a class="nav-chip is-core" href="#item-6">
+          🔴 건설
+          <span class="">0%</span>
+        </a>
+      
+        <a class="nav-chip is-core" href="#item-7">
+          🔴 데이터센터
+          <span class="">0%</span>
+        </a>
+      
+        <a class="nav-chip is-core" href="#item-8">
+          🟢 ESS
+          <span class="strong-beat">100%</span>
+        </a>
+      
+    </div>
+    <p class="foot-note">늘 확인하는 축이라 Wilson 순위와 무관하게 고정한다.
+       정의는 <code>earnings_tracker/data/item_tags.yaml</code> 의 <code>core:</code>.</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="icon">⚡</span> 아이템 시그널</h2>
+    <div class="sector-nav">
+      
+        <a class="nav-chip" href="#item-9">
+          🔵 5G(5세대 이동통신)
+          <span class="">67%</span>
+        </a>
+      
+        <a class="nav-chip" href="#item-10">
+          🔵 자율주행차
+          <span class="">67%</span>
+        </a>
+      
+        <a class="nav-chip" href="#item-11">
+          🟡 스마트홈(홈네트워크)
+          <span class="">33%</span>
+        </a>
+      
+        <a class="nav-chip" href="#item-12">
+          🟡 피지컬 AI/휴머노이드 로봇
+          <span class="">33%</span>
+        </a>
+      
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="icon">📊</span> 아이템별 요약</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>#</th><th>아이템</th><th class="num">종목수</th><th class="num">호실적</th>
+              <th class="num">비율</th><th class="num">두 축</th>
+              <th class="num">YoY 중앙값</th><th class="num">Wilson</th></tr>
+        </thead>
+        <tbody>
+        
+          <tr class="is-core-row">
+            <td class="num">1</td>
+            <td class="name"><a href="#item-1" style="color:inherit;text-decoration:none"><span class="core-badge">기본</span> 🟢 반도체</a></td>
+            <td class="num">3</td>
+            <td class="num">3</td>
+            <td class="num div strong-beat">
+              <strong>100%</strong></td>
+            <td class="num inline">-</td>
+            <td class="num">467.8%</td>
+            <td class="num inline">0.4385</td>
+          </tr>
+        
+          <tr class="is-core-row">
+            <td class="num">2</td>
+            <td class="name"><a href="#item-2" style="color:inherit;text-decoration:none"><span class="core-badge">기본</span> 🟢 반도체소부장</a></td>
+            <td class="num">1</td>
+            <td class="num">1</td>
+            <td class="num div strong-beat">
+              <strong>100%</strong></td>
+            <td class="num inline">-</td>
+            <td class="num">153.0%</td>
+            <td class="num inline">0.2065</td>
+          </tr>
+        
+          <tr class="is-core-row">
+            <td class="num">3</td>
+            <td class="name"><a href="#item-3" style="color:inherit;text-decoration:none"><span class="core-badge">기본</span> 🔴 인바운드</a></td>
+            <td class="num">1</td>
+            <td class="num">0</td>
+            <td class="num div inline">
+              <strong>0%</strong></td>
+            <td class="num inline">-</td>
+            <td class="num">11.9%</td>
+            <td class="num inline">0.0</td>
+          </tr>
+        
+          <tr class="is-core-row">
+            <td class="num">4</td>
+            <td class="name"><a href="#item-4" style="color:inherit;text-decoration:none"><span class="core-badge">기본</span> 🔴 방위산업</a></td>
+            <td class="num">2</td>
+            <td class="num">0</td>
+            <td class="num div inline">
+              <strong>0%</strong></td>
+            <td class="num inline">-</td>
+            <td class="num">0.5%</td>
+            <td class="num inline">0.0</td>
+          </tr>
+        
+          <tr class="is-core-row">
+            <td class="num">5</td>
+            <td class="name"><a href="#item-5" style="color:inherit;text-decoration:none"><span class="core-badge">기본</span> 🟢 전력기기</a></td>
+            <td class="num">2</td>
+            <td class="num">2</td>
+            <td class="num div strong-beat">
+              <strong>100%</strong></td>
+            <td class="num inline">-</td>
+            <td class="num">74.7%</td>
+            <td class="num inline">0.3424</td>
+          </tr>
+        
+          <tr class="is-core-row">
+            <td class="num">6</td>
+            <td class="name"><a href="#item-6" style="color:inherit;text-decoration:none"><span class="core-badge">기본</span> 🔴 건설</a></td>
+            <td class="num">1</td>
+            <td class="num">0</td>
+            <td class="num div inline">
+              <strong>0%</strong></td>
+            <td class="num inline">-</td>
+            <td class="num">-11.0%</td>
+            <td class="num inline">0.0</td>
+          </tr>
+        
+          <tr class="is-core-row">
+            <td class="num">7</td>
+            <td class="name"><a href="#item-7" style="color:inherit;text-decoration:none"><span class="core-badge">기본</span> 🔴 데이터센터</a></td>
+            <td class="num">1</td>
+            <td class="num">0</td>
+            <td class="num div inline">
+              <strong>0%</strong></td>
+            <td class="num inline">-</td>
+            <td class="num">13.5%</td>
+            <td class="num inline">0.0</td>
+          </tr>
+        
+          <tr class="is-core-row">
+            <td class="num">8</td>
+            <td class="name"><a href="#item-8" style="color:inherit;text-decoration:none"><span class="core-badge">기본</span> 🟢 ESS</a></td>
+            <td class="num">1</td>
+            <td class="num">1</td>
+            <td class="num div strong-beat">
+              <strong>100%</strong></td>
+            <td class="num inline">-</td>
+            <td class="num">25.7%</td>
+            <td class="num inline">0.2065</td>
+          </tr>
+        
+          <tr class="">
+            <td class="num">9</td>
+            <td class="name"><a href="#item-9" style="color:inherit;text-decoration:none">🔵 5G(5세대 이동통신)</a></td>
+            <td class="num">3</td>
+            <td class="num">2</td>
+            <td class="num div beat">
+              <strong>67%</strong></td>
+            <td class="num inline">-</td>
+            <td class="num">50.2%</td>
+            <td class="num inline">0.2077</td>
+          </tr>
+        
+          <tr class="">
+            <td class="num">10</td>
+            <td class="name"><a href="#item-10" style="color:inherit;text-decoration:none">🔵 자율주행차</a></td>
+            <td class="num">3</td>
+            <td class="num">2</td>
+            <td class="num div beat">
+              <strong>67%</strong></td>
+            <td class="num inline">-</td>
+            <td class="num">398.0%</td>
+            <td class="num inline">0.2077</td>
+          </tr>
+        
+          <tr class="">
+            <td class="num">11</td>
+            <td class="name"><a href="#item-11" style="color:inherit;text-decoration:none">🟡 스마트홈(홈네트워크)</a></td>
+            <td class="num">3</td>
+            <td class="num">1</td>
+            <td class="num div inline">
+              <strong>33%</strong></td>
+            <td class="num inline">-</td>
+            <td class="num">13.5%</td>
+            <td class="num inline">0.0615</td>
+          </tr>
+        
+          <tr class="">
+            <td class="num">12</td>
+            <td class="name"><a href="#item-12" style="color:inherit;text-decoration:none">🟡 피지컬 AI/휴머노이드 로봇</a></td>
+            <td class="num">3</td>
+            <td class="num">1</td>
+            <td class="num div inline">
+              <strong>33%</strong></td>
+            <td class="num inline">-</td>
+            <td class="num">13.5%</td>
+            <td class="num inline">0.0615</td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="icon">🔍</span> 아이템별 상세</h2>
+
+    
+      
+      
+      
+      <div class="sector-card" id="item-1">
+        <div class="sector-header">
+          <div class="sector-title">
+            <h3><span class="core-badge">기본</span> 🟢 반도체
+              <span class="sector-count">(3종목)</span></h3>
+            
+          </div>
+          <div class="sector-metrics">
+            <div class="metric">
+              <span class="metric-label">호실적률</span>
+              <span class="metric-value strong-beat">100%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">YoY 중앙값</span>
+              <span class="metric-value strong-beat">
+                467.8%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">두 축 동시</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">기저효과</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Wilson</span>
+              <span class="metric-value">0.4385</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-beat" style="width:100.0%"></div>
+          <div class="bar-inline" style="width:0.0%"></div>
+          <div class="bar-miss" style="width:0.0%"></div>
+          <div class="bar-na" style="width:0.0%"></div>
+        </div>
+        <div class="bar-labels">
+          <span class="strong-beat">호실적 3</span>
+          <span class="inline">보합 0</span>
+          <span class="strong-miss">부진 0</span>
+          <span class="inline">판정불가 0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>종목</th><th class="num">영업이익 YoY</th><th>등급</th>
+                  <th>비교 이력</th><th class="num">3년평균비</th>
+                  <th class="num">컨센 괴리</th><th>소스</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr class="strong-beat">
+                <td class="name">삼성전자<span class="tag-yoy">005930</span></td>
+                <td class="num div strong-beat">
+                  <strong>+782.5%</strong>
+                  </td>
+                <td><span class="grade-badge strong-beat">고성장</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+              <tr class="strong-beat">
+                <td class="name">테크윙<span class="tag-yoy">089030</span></td>
+                <td class="num div strong-beat">
+                  <strong>+153.0%</strong>
+                  </td>
+                <td><span class="grade-badge strong-beat">고성장</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+              <tr class="strong-beat">
+                <td class="name">파두<span class="tag-yoy">440110</span></td>
+                <td class="num div strong-beat">
+                  -</td>
+                <td><span class="grade-badge strong-beat">흑자전환</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      
+      
+      
+      <div class="sector-card" id="item-2">
+        <div class="sector-header">
+          <div class="sector-title">
+            <h3><span class="core-badge">기본</span> 🟢 반도체소부장
+              <span class="sector-count">(1종목)</span></h3>
+            
+          </div>
+          <div class="sector-metrics">
+            <div class="metric">
+              <span class="metric-label">호실적률</span>
+              <span class="metric-value strong-beat">100%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">YoY 중앙값</span>
+              <span class="metric-value strong-beat">
+                153.0%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">두 축 동시</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">기저효과</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Wilson</span>
+              <span class="metric-value">0.2065</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-beat" style="width:100.0%"></div>
+          <div class="bar-inline" style="width:0.0%"></div>
+          <div class="bar-miss" style="width:0.0%"></div>
+          <div class="bar-na" style="width:0.0%"></div>
+        </div>
+        <div class="bar-labels">
+          <span class="strong-beat">호실적 1</span>
+          <span class="inline">보합 0</span>
+          <span class="strong-miss">부진 0</span>
+          <span class="inline">판정불가 0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>종목</th><th class="num">영업이익 YoY</th><th>등급</th>
+                  <th>비교 이력</th><th class="num">3년평균비</th>
+                  <th class="num">컨센 괴리</th><th>소스</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr class="strong-beat">
+                <td class="name">테크윙<span class="tag-yoy">089030</span></td>
+                <td class="num div strong-beat">
+                  <strong>+153.0%</strong>
+                  </td>
+                <td><span class="grade-badge strong-beat">고성장</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      
+      
+      
+      <div class="sector-card" id="item-3">
+        <div class="sector-header">
+          <div class="sector-title">
+            <h3><span class="core-badge">기본</span> 🔴 인바운드
+              <span class="sector-count">(1종목)</span></h3>
+            
+          </div>
+          <div class="sector-metrics">
+            <div class="metric">
+              <span class="metric-label">호실적률</span>
+              <span class="metric-value inline">0%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">YoY 중앙값</span>
+              <span class="metric-value strong-beat">
+                11.9%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">두 축 동시</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">기저효과</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Wilson</span>
+              <span class="metric-value">0.0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-beat" style="width:0.0%"></div>
+          <div class="bar-inline" style="width:100.0%"></div>
+          <div class="bar-miss" style="width:0.0%"></div>
+          <div class="bar-na" style="width:0.0%"></div>
+        </div>
+        <div class="bar-labels">
+          <span class="strong-beat">호실적 0</span>
+          <span class="inline">보합 1</span>
+          <span class="strong-miss">부진 0</span>
+          <span class="inline">판정불가 0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>종목</th><th class="num">영업이익 YoY</th><th>등급</th>
+                  <th>비교 이력</th><th class="num">3년평균비</th>
+                  <th class="num">컨센 괴리</th><th>소스</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr class="inline">
+                <td class="name">대한항공<span class="tag-yoy">003490</span></td>
+                <td class="num div inline">
+                  <strong>+11.9%</strong>
+                  </td>
+                <td><span class="grade-badge inline">보합</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      
+      
+      
+      <div class="sector-card" id="item-4">
+        <div class="sector-header">
+          <div class="sector-title">
+            <h3><span class="core-badge">기본</span> 🔴 방위산업
+              <span class="sector-count">(2종목)</span></h3>
+            
+          </div>
+          <div class="sector-metrics">
+            <div class="metric">
+              <span class="metric-label">호실적률</span>
+              <span class="metric-value inline">0%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">YoY 중앙값</span>
+              <span class="metric-value strong-beat">
+                0.5%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">두 축 동시</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">기저효과</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Wilson</span>
+              <span class="metric-value">0.0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-beat" style="width:0.0%"></div>
+          <div class="bar-inline" style="width:100.0%"></div>
+          <div class="bar-miss" style="width:0.0%"></div>
+          <div class="bar-na" style="width:0.0%"></div>
+        </div>
+        <div class="bar-labels">
+          <span class="strong-beat">호실적 0</span>
+          <span class="inline">보합 2</span>
+          <span class="strong-miss">부진 0</span>
+          <span class="inline">판정불가 0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>종목</th><th class="num">영업이익 YoY</th><th>등급</th>
+                  <th>비교 이력</th><th class="num">3년평균비</th>
+                  <th class="num">컨센 괴리</th><th>소스</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr class="inline">
+                <td class="name">대한항공<span class="tag-yoy">003490</span></td>
+                <td class="num div inline">
+                  <strong>+11.9%</strong>
+                  </td>
+                <td><span class="grade-badge inline">보합</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+              <tr class="inline">
+                <td class="name">현대로템<span class="tag-yoy">064350</span></td>
+                <td class="num div inline">
+                  <strong>-11.0%</strong>
+                  </td>
+                <td><span class="grade-badge inline">보합</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="0.0" r="2" fill="currentColor" /><circle cx="96.0" cy="22.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      
+      
+      
+      <div class="sector-card" id="item-5">
+        <div class="sector-header">
+          <div class="sector-title">
+            <h3><span class="core-badge">기본</span> 🟢 전력기기
+              <span class="sector-count">(2종목)</span></h3>
+            
+          </div>
+          <div class="sector-metrics">
+            <div class="metric">
+              <span class="metric-label">호실적률</span>
+              <span class="metric-value strong-beat">100%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">YoY 중앙값</span>
+              <span class="metric-value strong-beat">
+                74.7%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">두 축 동시</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">기저효과</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Wilson</span>
+              <span class="metric-value">0.3424</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-beat" style="width:100.0%"></div>
+          <div class="bar-inline" style="width:0.0%"></div>
+          <div class="bar-miss" style="width:0.0%"></div>
+          <div class="bar-na" style="width:0.0%"></div>
+        </div>
+        <div class="bar-labels">
+          <span class="strong-beat">호실적 2</span>
+          <span class="inline">보합 0</span>
+          <span class="strong-miss">부진 0</span>
+          <span class="inline">판정불가 0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>종목</th><th class="num">영업이익 YoY</th><th>등급</th>
+                  <th>비교 이력</th><th class="num">3년평균비</th>
+                  <th class="num">컨센 괴리</th><th>소스</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr class="strong-beat">
+                <td class="name">가온전선<span class="tag-yoy">000500</span></td>
+                <td class="num div strong-beat">
+                  <strong>+99.1%</strong>
+                  </td>
+                <td><span class="grade-badge strong-beat">고성장</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+              <tr class="strong-beat">
+                <td class="name">LS에코에너지<span class="tag-yoy">229640</span></td>
+                <td class="num div strong-beat">
+                  <strong>+50.2%</strong>
+                  </td>
+                <td><span class="grade-badge strong-beat">고성장</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      
+      
+      
+      <div class="sector-card" id="item-6">
+        <div class="sector-header">
+          <div class="sector-title">
+            <h3><span class="core-badge">기본</span> 🔴 건설
+              <span class="sector-count">(1종목)</span></h3>
+            
+          </div>
+          <div class="sector-metrics">
+            <div class="metric">
+              <span class="metric-label">호실적률</span>
+              <span class="metric-value inline">0%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">YoY 중앙값</span>
+              <span class="metric-value miss">
+                -11.0%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">두 축 동시</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">기저효과</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Wilson</span>
+              <span class="metric-value">0.0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-beat" style="width:0.0%"></div>
+          <div class="bar-inline" style="width:100.0%"></div>
+          <div class="bar-miss" style="width:0.0%"></div>
+          <div class="bar-na" style="width:0.0%"></div>
+        </div>
+        <div class="bar-labels">
+          <span class="strong-beat">호실적 0</span>
+          <span class="inline">보합 1</span>
+          <span class="strong-miss">부진 0</span>
+          <span class="inline">판정불가 0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>종목</th><th class="num">영업이익 YoY</th><th>등급</th>
+                  <th>비교 이력</th><th class="num">3년평균비</th>
+                  <th class="num">컨센 괴리</th><th>소스</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr class="inline">
+                <td class="name">현대로템<span class="tag-yoy">064350</span></td>
+                <td class="num div inline">
+                  <strong>-11.0%</strong>
+                  </td>
+                <td><span class="grade-badge inline">보합</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="0.0" r="2" fill="currentColor" /><circle cx="96.0" cy="22.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      
+      
+      
+      <div class="sector-card" id="item-7">
+        <div class="sector-header">
+          <div class="sector-title">
+            <h3><span class="core-badge">기본</span> 🔴 데이터센터
+              <span class="sector-count">(1종목)</span></h3>
+            
+          </div>
+          <div class="sector-metrics">
+            <div class="metric">
+              <span class="metric-label">호실적률</span>
+              <span class="metric-value inline">0%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">YoY 중앙값</span>
+              <span class="metric-value strong-beat">
+                13.5%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">두 축 동시</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">기저효과</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Wilson</span>
+              <span class="metric-value">0.0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-beat" style="width:0.0%"></div>
+          <div class="bar-inline" style="width:100.0%"></div>
+          <div class="bar-miss" style="width:0.0%"></div>
+          <div class="bar-na" style="width:0.0%"></div>
+        </div>
+        <div class="bar-labels">
+          <span class="strong-beat">호실적 0</span>
+          <span class="inline">보합 1</span>
+          <span class="strong-miss">부진 0</span>
+          <span class="inline">판정불가 0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>종목</th><th class="num">영업이익 YoY</th><th>등급</th>
+                  <th>비교 이력</th><th class="num">3년평균비</th>
+                  <th class="num">컨센 괴리</th><th>소스</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr class="inline">
+                <td class="name">LG전자<span class="tag-yoy">066570</span></td>
+                <td class="num div inline">
+                  <strong>+13.5%</strong>
+                  </td>
+                <td><span class="grade-badge inline">보합</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      
+      
+      
+      <div class="sector-card" id="item-8">
+        <div class="sector-header">
+          <div class="sector-title">
+            <h3><span class="core-badge">기본</span> 🟢 ESS
+              <span class="sector-count">(1종목)</span></h3>
+            
+          </div>
+          <div class="sector-metrics">
+            <div class="metric">
+              <span class="metric-label">호실적률</span>
+              <span class="metric-value strong-beat">100%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">YoY 중앙값</span>
+              <span class="metric-value strong-beat">
+                25.7%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">두 축 동시</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">기저효과</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Wilson</span>
+              <span class="metric-value">0.2065</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-beat" style="width:100.0%"></div>
+          <div class="bar-inline" style="width:0.0%"></div>
+          <div class="bar-miss" style="width:0.0%"></div>
+          <div class="bar-na" style="width:0.0%"></div>
+        </div>
+        <div class="bar-labels">
+          <span class="strong-beat">호실적 1</span>
+          <span class="inline">보합 0</span>
+          <span class="strong-miss">부진 0</span>
+          <span class="inline">판정불가 0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>종목</th><th class="num">영업이익 YoY</th><th>등급</th>
+                  <th>비교 이력</th><th class="num">3년평균비</th>
+                  <th class="num">컨센 괴리</th><th>소스</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr class="beat">
+                <td class="name">LG에너지솔루션<span class="tag-yoy">373220</span></td>
+                <td class="num div beat">
+                  <strong>+25.7%</strong>
+                  </td>
+                <td><span class="grade-badge beat">성장</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      
+      
+      
+      <div class="sector-card" id="item-9">
+        <div class="sector-header">
+          <div class="sector-title">
+            <h3>🔵 5G(5세대 이동통신)
+              <span class="sector-count">(3종목)</span></h3>
+            
+          </div>
+          <div class="sector-metrics">
+            <div class="metric">
+              <span class="metric-label">호실적률</span>
+              <span class="metric-value beat">67%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">YoY 중앙값</span>
+              <span class="metric-value strong-beat">
+                50.2%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">두 축 동시</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">기저효과</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Wilson</span>
+              <span class="metric-value">0.2077</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-beat" style="width:66.7%"></div>
+          <div class="bar-inline" style="width:33.3%"></div>
+          <div class="bar-miss" style="width:0.0%"></div>
+          <div class="bar-na" style="width:0.0%"></div>
+        </div>
+        <div class="bar-labels">
+          <span class="strong-beat">호실적 2</span>
+          <span class="inline">보합 1</span>
+          <span class="strong-miss">부진 0</span>
+          <span class="inline">판정불가 0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>종목</th><th class="num">영업이익 YoY</th><th>등급</th>
+                  <th>비교 이력</th><th class="num">3년평균비</th>
+                  <th class="num">컨센 괴리</th><th>소스</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr class="strong-beat">
+                <td class="name">삼성전자<span class="tag-yoy">005930</span></td>
+                <td class="num div strong-beat">
+                  <strong>+782.5%</strong>
+                  </td>
+                <td><span class="grade-badge strong-beat">고성장</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+              <tr class="strong-beat">
+                <td class="name">LS에코에너지<span class="tag-yoy">229640</span></td>
+                <td class="num div strong-beat">
+                  <strong>+50.2%</strong>
+                  </td>
+                <td><span class="grade-badge strong-beat">고성장</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+              <tr class="inline">
+                <td class="name">LG전자<span class="tag-yoy">066570</span></td>
+                <td class="num div inline">
+                  <strong>+13.5%</strong>
+                  </td>
+                <td><span class="grade-badge inline">보합</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      
+      
+      
+      <div class="sector-card" id="item-10">
+        <div class="sector-header">
+          <div class="sector-title">
+            <h3>🔵 자율주행차
+              <span class="sector-count">(3종목)</span></h3>
+            
+          </div>
+          <div class="sector-metrics">
+            <div class="metric">
+              <span class="metric-label">호실적률</span>
+              <span class="metric-value beat">67%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">YoY 중앙값</span>
+              <span class="metric-value strong-beat">
+                398.0%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">두 축 동시</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">기저효과</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Wilson</span>
+              <span class="metric-value">0.2077</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-beat" style="width:66.7%"></div>
+          <div class="bar-inline" style="width:33.3%"></div>
+          <div class="bar-miss" style="width:0.0%"></div>
+          <div class="bar-na" style="width:0.0%"></div>
+        </div>
+        <div class="bar-labels">
+          <span class="strong-beat">호실적 2</span>
+          <span class="inline">보합 1</span>
+          <span class="strong-miss">부진 0</span>
+          <span class="inline">판정불가 0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>종목</th><th class="num">영업이익 YoY</th><th>등급</th>
+                  <th>비교 이력</th><th class="num">3년평균비</th>
+                  <th class="num">컨센 괴리</th><th>소스</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr class="strong-beat">
+                <td class="name">삼성전자<span class="tag-yoy">005930</span></td>
+                <td class="num div strong-beat">
+                  <strong>+782.5%</strong>
+                  </td>
+                <td><span class="grade-badge strong-beat">고성장</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+              <tr class="inline">
+                <td class="name">LG전자<span class="tag-yoy">066570</span></td>
+                <td class="num div inline">
+                  <strong>+13.5%</strong>
+                  </td>
+                <td><span class="grade-badge inline">보합</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+              <tr class="strong-beat">
+                <td class="name">캠시스<span class="tag-yoy">050110</span></td>
+                <td class="num div strong-beat">
+                  -</td>
+                <td><span class="grade-badge strong-beat">흑자전환</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      
+      
+      
+      <div class="sector-card" id="item-11">
+        <div class="sector-header">
+          <div class="sector-title">
+            <h3>🟡 스마트홈(홈네트워크)
+              <span class="sector-count">(3종목)</span></h3>
+            
+          </div>
+          <div class="sector-metrics">
+            <div class="metric">
+              <span class="metric-label">호실적률</span>
+              <span class="metric-value inline">33%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">YoY 중앙값</span>
+              <span class="metric-value strong-beat">
+                13.5%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">두 축 동시</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">기저효과</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Wilson</span>
+              <span class="metric-value">0.0615</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-beat" style="width:33.3%"></div>
+          <div class="bar-inline" style="width:66.7%"></div>
+          <div class="bar-miss" style="width:0.0%"></div>
+          <div class="bar-na" style="width:0.0%"></div>
+        </div>
+        <div class="bar-labels">
+          <span class="strong-beat">호실적 1</span>
+          <span class="inline">보합 2</span>
+          <span class="strong-miss">부진 0</span>
+          <span class="inline">판정불가 0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>종목</th><th class="num">영업이익 YoY</th><th>등급</th>
+                  <th>비교 이력</th><th class="num">3년평균비</th>
+                  <th class="num">컨센 괴리</th><th>소스</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr class="strong-beat">
+                <td class="name">삼성전자<span class="tag-yoy">005930</span></td>
+                <td class="num div strong-beat">
+                  <strong>+782.5%</strong>
+                  </td>
+                <td><span class="grade-badge strong-beat">고성장</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+              <tr class="inline">
+                <td class="name">LG전자<span class="tag-yoy">066570</span></td>
+                <td class="num div inline">
+                  <strong>+13.5%</strong>
+                  </td>
+                <td><span class="grade-badge inline">보합</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+              <tr class="inline">
+                <td class="name">에스원<span class="tag-yoy">012750</span></td>
+                <td class="num div inline">
+                  <strong>+5.3%</strong>
+                  </td>
+                <td><span class="grade-badge inline">보합</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      
+      
+      
+      <div class="sector-card" id="item-12">
+        <div class="sector-header">
+          <div class="sector-title">
+            <h3>🟡 피지컬 AI/휴머노이드 로봇
+              <span class="sector-count">(3종목)</span></h3>
+            
+          </div>
+          <div class="sector-metrics">
+            <div class="metric">
+              <span class="metric-label">호실적률</span>
+              <span class="metric-value inline">33%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">YoY 중앙값</span>
+              <span class="metric-value strong-beat">
+                13.5%</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">두 축 동시</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">기저효과</span>
+              <span class="metric-value inline">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Wilson</span>
+              <span class="metric-value">0.0615</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bar-chart">
+          <div class="bar-beat" style="width:33.3%"></div>
+          <div class="bar-inline" style="width:66.7%"></div>
+          <div class="bar-miss" style="width:0.0%"></div>
+          <div class="bar-na" style="width:0.0%"></div>
+        </div>
+        <div class="bar-labels">
+          <span class="strong-beat">호실적 1</span>
+          <span class="inline">보합 2</span>
+          <span class="strong-miss">부진 0</span>
+          <span class="inline">판정불가 0</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>종목</th><th class="num">영업이익 YoY</th><th>등급</th>
+                  <th>비교 이력</th><th class="num">3년평균비</th>
+                  <th class="num">컨센 괴리</th><th>소스</th></tr>
+            </thead>
+            <tbody>
+            
+              <tr class="strong-beat">
+                <td class="name">삼성전자<span class="tag-yoy">005930</span></td>
+                <td class="num div strong-beat">
+                  <strong>+782.5%</strong>
+                  </td>
+                <td><span class="grade-badge strong-beat">고성장</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+              <tr class="inline">
+                <td class="name">LG전자<span class="tag-yoy">066570</span></td>
+                <td class="num div inline">
+                  <strong>+13.5%</strong>
+                  </td>
+                <td><span class="grade-badge inline">보합</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="22.0" r="2" fill="currentColor" /><circle cx="96.0" cy="0.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+              <tr class="inline">
+                <td class="name">세나테크놀로지<span class="tag-yoy">061090</span></td>
+                <td class="num div inline">
+                  <strong>-10.7%</strong>
+                  </td>
+                <td><span class="grade-badge inline">보합</span></td>
+                <td class="spark-cell">
+                  
+                    <svg class="spark" viewBox="0 0 96 22" preserveAspectRatio="none">
+                      
+                      <circle cx="0.0" cy="0.0" r="2" fill="currentColor" /><circle cx="96.0" cy="22.0" r="2" fill="currentColor" />
+                      
+                    </svg>
+                  
+                  
+                  
+                </td>
+                <td class="num ">
+                  <span class="muted">—</span></td>
+                <td class="num ">
+                  <span class="muted">컨센없음</span></td>
+                <td><span class="tag-tg">DART 잠정</span>
+                    </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+
+    <p class="foot-note">
+      
+        클러스터 12개 전체 (기본섹터 8개).
+      
+      생성 2026-10-20T14:51:05+09:00
+    </p>
+  </div>
+
+
+
+  <div class="section">
+    <h2>수집 실적 전체 <span class="tag-yoy">21종목 · 단위 억원</span></h2>
+    <p class="foot-note">테마가 없는 종목과 영업이익 미발표 종목도 표시합니다. ‘—’는 결측이며 0이 아닙니다. 텔레그램만 확보한 수치는 미확인입니다.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>종목</th><th>공시일</th><th>기준</th><th class="num">매출</th><th class="num">영업이익</th><th class="num">전년 영업이익</th><th class="num">순이익</th><th class="num">텔레그램 예상 영업익<br>(미확인)</th><th class="num">예상치 괴리<br>(참고)</th><th>출처·확인</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="name">플리토<span class="tag-yoy">300080</span></td>
+          <td>2026-10-20</td>
+          <td>연결</td>
+          
+          <td class="num">177.86</td>
+          
+          <td class="num">89.72</td>
+          
+          <td class="num">28.30</td>
+          
+          <td class="num">83.46</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261020900285" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154985" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">LS에코에너지<span class="tag-yoy">229640</span></td>
+          <td>2026-10-20</td>
+          <td>연결</td>
+          
+          <td class="num">3,515.21</td>
+          
+          <td class="num">221.74</td>
+          
+          <td class="num">147.67</td>
+          
+          <td class="num">140.22</td>
+          
+          <td class="num">206.00</td>
+          
+          <td class="num">+7.6%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261020800175" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154973" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">파두<span class="tag-yoy">440110</span></td>
+          <td>2026-10-19</td>
+          <td>연결</td>
+          
+          <td class="num">1,435.61</td>
+          
+          <td class="num">362.69</td>
+          
+          <td class="num">-114.26</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">333.00</td>
+          
+          <td class="num">+8.9%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261019900192" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154902" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">티앤알바이오팹<span class="tag-yoy">246710</span></td>
+          <td>2026-10-19</td>
+          <td>연결</td>
+          
+          <td class="num">89.10</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261019900118" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">현대로템<span class="tag-yoy">064350</span></td>
+          <td>2026-10-19</td>
+          <td>연결</td>
+          
+          <td class="num">16,207.00</td>
+          
+          <td class="num">2,470.74</td>
+          
+          <td class="num">2,777.43</td>
+          
+          <td class="num">1,779.84</td>
+          
+          <td class="num">2,737.00</td>
+          
+          <td class="num">-9.7%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261019800217" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154909" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">캠시스<span class="tag-yoy">050110</span></td>
+          <td>2026-10-19</td>
+          <td>연결</td>
+          
+          <td class="num">1,536.74</td>
+          
+          <td class="num">74.34</td>
+          
+          <td class="num">-32.85</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261019900129" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">가온전선<span class="tag-yoy">000500</span></td>
+          <td>2026-10-19</td>
+          <td>연결</td>
+          
+          <td class="num">9,864.58</td>
+          
+          <td class="num">520.11</td>
+          
+          <td class="num">261.27</td>
+          
+          <td class="num">299.86</td>
+          
+          <td class="num">430.00</td>
+          
+          <td class="num">+21.0%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261019800156" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154899" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">국도화학<span class="tag-yoy">007690</span></td>
+          <td>2026-10-16</td>
+          <td>연결</td>
+          
+          <td class="num">4,398.57</td>
+          
+          <td class="num">48.15</td>
+          
+          <td class="num">107.65</td>
+          
+          <td class="num">-70.92</td>
+          
+          <td class="num">271.00</td>
+          
+          <td class="num">-82.2%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261016800456" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154831" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">대한항공<span class="tag-yoy">003490</span></td>
+          <td>2026-10-15</td>
+          <td>별도</td>
+          
+          <td class="num">50,448.00</td>
+          
+          <td class="num">4,212.00</td>
+          
+          <td class="num">3,763.00</td>
+          
+          <td class="num">9,297.00</td>
+          
+          <td class="num">3,078.00</td>
+          
+          <td class="num">+36.8%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261015800437" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154765" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">서울바이오시스<span class="tag-yoy">092190</span></td>
+          <td>2026-10-14</td>
+          <td>연결</td>
+          
+          <td class="num">2,285.20</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261014900328" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">테크윙<span class="tag-yoy">089030</span></td>
+          <td>2026-10-14</td>
+          <td>연결</td>
+          
+          <td class="num">877.84</td>
+          
+          <td class="num">179.94</td>
+          
+          <td class="num">71.11</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261014900085" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154654" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">세나테크놀로지<span class="tag-yoy">061090</span></td>
+          <td>2026-10-14</td>
+          <td>연결</td>
+          
+          <td class="num">521.78</td>
+          
+          <td class="num">48.69</td>
+          
+          <td class="num">54.50</td>
+          
+          <td class="num">12.27</td>
+          
+          <td class="num">100.00</td>
+          
+          <td class="num">-51.3%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261014900180" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154660" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">서울반도체<span class="tag-yoy">046890</span></td>
+          <td>2026-10-14</td>
+          <td>연결</td>
+          
+          <td class="num">3,021.76</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261014900322" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">에스원<span class="tag-yoy">012750</span></td>
+          <td>2026-10-14</td>
+          <td>연결</td>
+          
+          <td class="num">7,167.11</td>
+          
+          <td class="num">653.94</td>
+          
+          <td class="num">621.25</td>
+          
+          <td class="num">495.27</td>
+          
+          <td class="num">630.00</td>
+          
+          <td class="num">+3.8%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261014800566" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154697" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">셀트리온<span class="tag-yoy">068270</span></td>
+          <td>2026-10-12</td>
+          <td>연결</td>
+          
+          <td class="num">15,000.00</td>
+          
+          <td class="num">5,100.00</td>
+          
+          <td class="num">3,014.00</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">5,141.00</td>
+          
+          <td class="num">-0.8%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261012800004" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154505" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">한진<span class="tag-yoy">002320</span></td>
+          <td>2026-10-12</td>
+          <td>연결</td>
+          
+          <td class="num">8,898.00</td>
+          
+          <td class="num">326.00</td>
+          
+          <td class="num">308.00</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">299.00</td>
+          
+          <td class="num">+9.0%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261012800558" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154554" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">LG에너지솔루션<span class="tag-yoy">373220</span></td>
+          <td>2026-10-08</td>
+          <td>연결</td>
+          
+          <td class="num">96,434.00</td>
+          
+          <td class="num">7,560.00</td>
+          
+          <td class="num">6,013.00</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">3,200.00</td>
+          
+          <td class="num">+136.2%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008800055" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154398" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">삼성전자<span class="tag-yoy">005930</span></td>
+          <td>2026-10-08</td>
+          <td>연결</td>
+          
+          <td class="num">1,950,000.00</td>
+          
+          <td class="num">1,074,000.00</td>
+          
+          <td class="num">121,700.00</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">1,067,467.00</td>
+          
+          <td class="num">+0.6%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008800004" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154395" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">LG전자<span class="tag-yoy">066570</span></td>
+          <td>2026-10-07</td>
+          <td>연결</td>
+          
+          <td class="num">238,270.00</td>
+          
+          <td class="num">7,818.00</td>
+          
+          <td class="num">6,889.00</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">10,259.00</td>
+          
+          <td class="num">-23.8%</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261007800145" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            <a class="tag-tg" href="https://t.me/darthacking/154307" target="_blank" rel="noopener noreferrer">텔레그램 대조</a>
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">샤페론<span class="tag-yoy">378800</span></td>
+          <td>2026-10-01</td>
+          <td>연결</td>
+          
+          <td class="num">47.71</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261001900342" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">잠정</span>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <td class="name">씨엑스아이<span class="tag-yoy">900120</span></td>
+          <td>2026-10-08</td>
+          <td>별도</td>
+          
+          <td class="num">182.00</td>
+          
+          <td class="num">43.00</td>
+          
+          <td class="num">76.00</td>
+          
+          <td class="num">98.00</td>
+          
+          <td class="num">—</td>
+          
+          <td class="num">—</td>
+          <td><a href="https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008900664" target="_blank" rel="noopener noreferrer">DART 원문</a>
+            <span class="tag-yoy">텔레그램 · 미확인</span>
+            <a href="https://t.me/darthacking/154463" target="_blank" rel="noopener noreferrer">텔레그램 원문</a>
+          </td>
+        </tr>
+      </tbody>
+    </table></div>
+  </div>
+
+</div>
+
+  </main>
+
+  
+  
+  <footer class="public-disclaimer">
+    <p><b>출처</b> · 금융감독원 전자공시시스템(DART) 잠정실적·분기 재무제표. 공개 텔레그램 AWAKE 채널은 금액 대조 및 미확인 예상치 참고에 사용합니다. 분기·연결/별도·잠정/확정 여부를 확인하세요.</p>
+    <p><b>면책</b> · 본 페이지는 <b>정보 제공 목적</b>이며 <b>투자 권유나 자문이 아닙니다</b>. 수치는 원자료를 자동 파싱한 값으로 오류가 있을 수 있고, 갱신 시점 이후의 변동은 반영되지 않습니다. 투자 판단과 그 결과에 대한 책임은 이용자 본인에게 있으며, 작성자는 어떠한 손해에 대해서도 책임지지 않습니다.</p>
+    <p><b>갱신</b> · 매일 6시간 정기 발행 및 수동 갱신. 마지막 빌드 2026-10-20 14:51</p>
+  </footer>
+  
+</body>
+</html>
